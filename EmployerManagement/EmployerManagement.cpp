@@ -2,10 +2,13 @@
 //
 
 #include "stdafx.h"
+#include "Manage.h"
 
 
 int main()
 {
+	Manage* manage = new Manage();
+	manage->NhapDepartment();
     return 0;
 }
 

@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Manage">
+      <UniqueIdentifier>{c02e059f-f058-47a6-a843-c97ecb7f601a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manage\headers">
+      <UniqueIdentifier>{44f8ff9f-1129-4110-9eef-160b935b1587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manage\sources">
+      <UniqueIdentifier>{321889cb-e554-420c-a38f-858df1543023}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,6 +33,15 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Department.h">
+      <Filter>Manage\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Employer.h">
+      <Filter>Manage\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Manage.h">
+      <Filter>Manage\headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -31,6 +49,15 @@
     </ClCompile>
     <ClCompile Include="EmployerManagement.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Department.cpp">
+      <Filter>Manage\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Employer.cpp">
+      <Filter>Manage\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Manage.cpp">
+      <Filter>Manage\sources</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
