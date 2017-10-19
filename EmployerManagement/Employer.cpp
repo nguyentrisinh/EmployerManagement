@@ -1,3 +1,4 @@
+#include "stdafx.h";
 #include "Employer.h"
 
 
@@ -11,16 +12,13 @@ Employer::~Employer() {
 
 void Employer::NhapNhanVien() {
 	cout << "Nhap ma nhan vien:";
-	//gets_s(MaNV);
-	fflush(stdin);
-	cin >> MaNV;
+	gets_s(MaNV);
 	cout << "Nhap ten nhan vien:";
-	fflush(stdin);
 	gets_s(TenNV);
 	cout << "Nhap so dien thoai:";
-	gets_s(SoDT);
+	cin >> SoDT;
 	cout << "Nhap ngay sinh:";
-	gets_s(NgSinh);
+	cin >> NgSinh;
 }
 
 void Employer::XuatNhanVien() {
