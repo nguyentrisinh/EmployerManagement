@@ -1,4 +1,7 @@
+#include "stdafx.h"
 #include "Manage.h"
+#include "FulltimeEmployer.h"
+#include "PartimeEmployer.h"
 
 
 void Manage::NhapDepartment() {
@@ -45,10 +48,26 @@ void Manage::NhapNhanVien() {
 
 	for (int i = 0; i < this->employerCount; i++)
 	{
-		employers[i] = new Employer();
+		int choice;
+		do {
+			cout << "Nhap loai nhan vien: (1-Bien che/ 2-Cong nhat)" << endl;
+			cin >> choice;
+		} while (choice != 1 && choice != 2);
+		cin.ignore();
 		cout << "-----------------------------------" << endl;
 		cout << "Nhap nhan vien thu " << i + 1 << endl;
-		employers[i]->NhapNhanVien();
+		switch (choice) {
+		case 1:
+			employers[i] = new FulltimeEmployer();
+			employers[i]->NhapNhanVien();
+			break;
+		case 2:
+			employers[i] = new PartimeEmployer();
+			employers[i]->NhapNhanVien();
+			break;
+
+		}
+		
 	}
 }
 

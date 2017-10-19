@@ -20,6 +20,6 @@ public:
 	~Employer();
 
 	// void addEmployer(char MaNV[4], char TenNV[150], char SoDT[20], char NgSinh);
-	void NhapNhanVien();
-	void XuatNhanVien();
+	virtual void NhapNhanVien();
+	virtual void XuatNhanVien();
 };

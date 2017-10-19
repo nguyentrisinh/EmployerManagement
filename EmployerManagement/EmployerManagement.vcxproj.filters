@@ -42,6 +42,12 @@
     <ClInclude Include="Manage.h">
       <Filter>Manage\headers</Filter>
     </ClInclude>
+    <ClInclude Include="FulltimeEmployer.h">
+      <Filter>Manage\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="PartimeEmployer.h">
+      <Filter>Manage\headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -57,6 +63,12 @@
       <Filter>Manage\sources</Filter>
     </ClCompile>
     <ClCompile Include="Manage.cpp">
+      <Filter>Manage\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="FulltimeEmployer.cpp">
+      <Filter>Manage\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="PartimeEmployer.cpp">
       <Filter>Manage\sources</Filter>
     </ClCompile>
   </ItemGroup>
