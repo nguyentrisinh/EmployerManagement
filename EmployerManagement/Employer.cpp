@@ -11,9 +11,11 @@ Employer::~Employer() {
 
 void Employer::NhapNhanVien() {
 	cout << "Nhap ma nhan vien:";
-	gets_s(MaNV);
-	cout << MaNV << endl;
+	//gets_s(MaNV);
+	fflush(stdin);
+	cin >> MaNV;
 	cout << "Nhap ten nhan vien:";
+	fflush(stdin);
 	gets_s(TenNV);
 	cout << "Nhap so dien thoai:";
 	gets_s(SoDT);
