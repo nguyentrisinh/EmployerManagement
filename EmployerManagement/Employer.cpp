@@ -15,9 +15,9 @@ void Employer::NhapNhanVien() {
 	cout << "Nhap ten nhan vien:";
 	gets_s(TenNV);
 	cout << "Nhap so dien thoai:";
-	cin >> SoDT;
+	gets_s(SoDT);
 	cout << "Nhap ngay sinh:";
-	cin >> NgSinh;
+	gets_s(NgSinh);
 }
 
 void Employer::XuatNhanVien() {
