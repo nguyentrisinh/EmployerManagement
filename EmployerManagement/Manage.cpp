@@ -1,4 +1,5 @@
-#include "Manage.h"
+#include "stdafx.h";
+#include "Manage.h";
 
 
 void Manage::NhapDepartment() {
