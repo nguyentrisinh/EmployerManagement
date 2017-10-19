@@ -1,5 +1,5 @@
 #pragma once
-#include "iostream"
+#include <iostream>
 #include "stdio.h"
 #include "Department.h"
 #include "Employer.h"
@@ -10,7 +10,8 @@ using namespace std;
 class Manage {
 private:
 	int departmentCount;
-	Department** departments;
+	Department* departments;
+	Department testDepartment;
 
 	int employerCount;
 	Employer** employers;
@@ -20,5 +21,6 @@ public:
 	~Manage() {}
 
 	void NhapDepartment();
-	void NhapEmployer();
+	void TestNhapPhong();
+	void XuatDepartment();
 };

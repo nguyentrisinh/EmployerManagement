@@ -9,6 +9,8 @@ int main()
 {
 	Manage* manage = new Manage();
 	manage->NhapDepartment();
+	manage->XuatDepartment();
+	system("pause");
     return 0;
 }
 
