@@ -8,8 +8,10 @@
 int main()
 {
 	Manage* manage = new Manage();
-	manage->NhapDepartment();
-	manage->XuatDepartment();
+	//manage->NhapDepartment();
+	//manage->XuatDepartment();
+	manage->NhapNhanVien();
+	manage->XuatNhanVien();
 	system("pause");
     return 0;
 }

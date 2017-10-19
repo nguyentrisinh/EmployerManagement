@@ -1,19 +1,25 @@
 #pragma once
 #include "iostream"
+#include "stdio.h"
+#include "string.h"
+#include "Department.h"
 
 using namespace std;
 
 class Employer {
 private:
-	char MaNV[4];
+	char MaNV[5];
 	char TenNV[150];
 	char SoDT[20];
 	char NgSinh[30];
+	Department department;
 
 public:
 	Employer();
 
 	~Employer();
 
-	void addEmployer(char MaNV[4], char TenNV[150], char SoDT[20], char NgSinh);
+	// void addEmployer(char MaNV[4], char TenNV[150], char SoDT[20], char NgSinh);
+	void NhapNhanVien();
+	void XuatNhanVien();
 };

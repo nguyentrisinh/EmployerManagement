@@ -11,7 +11,6 @@ class Manage {
 private:
 	int departmentCount;
 	Department* departments;
-	Department testDepartment;
 
 	int employerCount;
 	Employer** employers;
@@ -21,6 +20,8 @@ public:
 	~Manage() {}
 
 	void NhapDepartment();
-	void TestNhapPhong();
 	void XuatDepartment();
+
+	void NhapNhanVien();
+	void XuatNhanVien();
 };
