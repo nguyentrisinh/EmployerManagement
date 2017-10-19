@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Manage.h"
 
 
@@ -40,7 +41,7 @@ void Manage::NhapNhanVien() {
 		cout << "So phong ban phai > 0. Xin vui long nhap lai so phong ban:";
 		cin >> this->employerCount;
 	}
-	fflush(stdin);
+	cin.ignore();
 	this->employers = new Employer* [departmentCount];
 
 	for (int i = 0; i < this->employerCount; i++)
