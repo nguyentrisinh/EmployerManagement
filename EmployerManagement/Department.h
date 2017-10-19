@@ -7,10 +7,11 @@ using namespace std;
 
 
 class Department {
+
+public:
 	char MaPhong[5];
 	char TenPhong[100];
 
-public:
 	Department();
 	~Department();
 

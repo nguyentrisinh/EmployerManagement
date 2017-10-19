@@ -12,9 +12,10 @@ private:
 	char TenNV[150];
 	char SoDT[20];
 	char NgSinh[30];
-	Department department;
+	Department* department;
 
 public:
+	int LoaiNV;
 	Employer();
 
 	~Employer();
@@ -22,4 +23,6 @@ public:
 	// void addEmployer(char MaNV[4], char TenNV[150], char SoDT[20], char NgSinh);
 	virtual void NhapNhanVien();
 	virtual void XuatNhanVien();
+
+	void SetDepartment(Department* department);
 };

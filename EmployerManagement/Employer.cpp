@@ -26,4 +26,9 @@ void Employer::XuatNhanVien() {
 	cout << "Ten nhan vien:" << TenNV << endl;
 	cout << "Dien thoai:" << SoDT << endl;
 	cout << "Ngay sinh:" << NgSinh << endl;
+	cout << "Ten phong ban:" << this->department->TenPhong << "\nMa phong ban:" << this->department->MaPhong << endl;
+}
+
+void Employer::SetDepartment(Department* department) {
+	this->department = department;
 }
