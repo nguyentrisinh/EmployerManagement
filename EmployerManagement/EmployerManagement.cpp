@@ -3,22 +3,25 @@
 
 #include "stdafx.h"
 #include "Manage.h"
+#include "Screens.h"
 
 
 int main()
 {
 	Manage* manage = new Manage();
-	//manage->NhapDepartment();
-	//manage->NhapNhanVien();
-	//system("cls");
+	////manage->NhapDepartment();
+	////manage->NhapNhanVien();
+	////system("cls");
 	manage->CreateDummyData();
-	manage->XuatNhanVien();
-	cout << "---------------------------------" << endl;
+	//manage->XuatNhanVien();
+	//cout << "---------------------------------" << endl;
 
 
-	manage->XoaNhanVien();
-	system("cls");
-	manage->XuatNhanVien();
+	//manage->XoaNhanVien();
+	//system("cls");
+	//manage->XuatNhanVien();
+
+	manage->SuaNhanVien();
 	system("pause");
     return 0;
 }

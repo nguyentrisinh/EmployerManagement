@@ -17,6 +17,21 @@ char* Employer::GetMaNV()
 	return this->MaNV;
 }
 
+void Employer::SetTenNV(char *TenNV)
+{
+	strcpy_s(this->TenNV, TenNV);
+}
+
+void Employer::SetSoDT(char * SoDT)
+{
+	strcpy_s(this->SoDT, SoDT);
+}
+
+void Employer::SetNgSinh(char * NgSinh)
+{
+	strcpy_s(this->NgSinh, NgSinh);
+}
+
 void Employer::NhapNhanVien() {
 	cout << "Nhap ma nhan vien:";
 	gets_s(MaNV);
@@ -29,11 +44,15 @@ void Employer::NhapNhanVien() {
 }
 
 void Employer::XuatNhanVien() {
-	cout << "Ma nhan vien:" << MaNV << endl;
-	cout << "Ten nhan vien:" << TenNV << endl;
-	cout << "Dien thoai:" << SoDT << endl;
-	cout << "Ngay sinh:" << NgSinh << endl;
-	cout << "Ten phong ban:" << this->department->TenPhong << "\nMa phong ban:" << this->department->MaPhong << endl;
+	cout << "MANV:\t" << MaNV << "\t";
+	cout << "Ten nhan vien:\t" << TenNV << "   ";
+	if (LoaiNV == 1)
+		cout << "(Nhan vien bien che)" << endl;
+	else
+		cout << "(Nhan vien thoi vu)" << endl;
+	cout << "Dien thoai:\t" << SoDT << endl;
+	cout << "Ngay sinh:\t" << NgSinh << endl;
+	cout << "Ten phong ban:\t" << this->department->TenPhong << "\nMa phong ban:\t" << this->department->MaPhong << endl;
 }
 
 void Employer::SetDepartment(Department* department) {

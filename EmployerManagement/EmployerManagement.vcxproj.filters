@@ -54,6 +54,9 @@
     <ClInclude Include="Salary.h">
       <Filter>Manage\headers</Filter>
     </ClInclude>
+    <ClInclude Include="Screens.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Department.cpp">
@@ -81,6 +84,9 @@
       <Filter>Manage\sources</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Screens.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

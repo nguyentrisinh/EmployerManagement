@@ -7,6 +7,8 @@
 //#include "Employer.h"
 #include "PartimeEmployer.h"
 #include "FulltimeEmployer.h"
+#include "Screens.h"
+#include <windows.h>
 
 using namespace std;
 
@@ -26,11 +28,16 @@ public:
 	void NhapNhanVien();
 	void XuatNhanVien();
 
-	//Employer* TimNhanVien(const char* MaNV);
+	int TimViTriNhanVien(const char* MaNV); // tra ve vi tri nhan vien
 	void XoaNhanVien();
+	void SuaNhanVien();
 
 
 
 
 	void CreateDummyData();
+
+	Employer* GetEmployer(int pos) {
+		return employers[pos];
+	}
 };

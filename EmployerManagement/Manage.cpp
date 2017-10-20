@@ -94,15 +94,15 @@ void Manage::XuatNhanVien() {
 	}
 }
 
-//Employer* Manage::TimNhanVien(const char * MaNV)
-//{
-//	for (int i = 0; i < this->employerCount; i++) {
-//		if (std::strcmp(employers[i]->GetMaNV(), MaNV) == 0)
-//			return employers[i];
-//	}
-//	cout << "Khong tim thay nhan vien tuong ung" << endl;
-//	return nullptr;
-//}
+int Manage::TimViTriNhanVien(const char * MaNV)
+{
+	for (int i = 0; i < employers.size(); i++) {
+		if (std::strcmp(employers[i]->GetMaNV(), MaNV) == 0)
+			return i;
+	}
+	cout << "Khong tim thay nhan vien tuong ung" << endl;
+	return -1;
+}
 
 void Manage::XoaNhanVien()
 {
@@ -113,21 +113,83 @@ void Manage::XoaNhanVien()
 	cin >> MaNV;
 
 	// Tim nhan vien
-	int pos = -1;
-	for (int i = 0; i < employers.size(); i++) {
-		if (std::strcmp(employers[i]->GetMaNV(), MaNV) == 0){
-			pos = i;
-			break;
-		}
-	}
+	int pos = TimViTriNhanVien(MaNV);
 	if (pos == -1){
-		cout << "Khong tim thay nhan vien " << MaNV << endl;
+		cout << "Xoa nhan vien that bai!" << endl;
 		return;
 	}
 
 	// Xoa nhan vien
 	employers.erase(employers.begin() + pos);
 	cout << "Xoa nhan vien thanh cong!" << endl;
+}
+
+void Manage::SuaNhanVien()
+{
+	char MaNV[5];
+	cout << "Nhap MaNV cua nhan vien can sua: ";
+	cin.clear();
+	fflush(stdin);
+	cin >> MaNV;
+
+	// Tim nhan vien
+	int pos = TimViTriNhanVien(MaNV);
+	if (pos == -1) {
+		cout << "Sua nhan vien that bai!" << endl;
+		return;
+	}
+
+	// Hien thi man hinh tuy chon
+	system("cls");
+	char key = Screens::DisplayEditEmployerScreen(employers[pos]);
+	system("cls");
+	switch (key) {
+	case '1': // Sua ho ten
+		char tenNV[150];
+		cout << "Nhap ho ten moi: ";
+		cin >> tenNV;
+		employers[pos]->SetTenNV(tenNV);
+		break;
+
+	case '2':// Sua SDT
+		char sdt[20];
+		cout << "Nhap sdt moi: ";
+		cin >> sdt;
+		employers[pos]->SetSoDT(sdt);
+		break;
+
+	case '3': // Sua ngay sinh
+		char ngSinh[30];
+		cout << "Nhap ngay sinh moi: ";
+		cin >> ngSinh;
+		employers[pos]->SetNgSinh(ngSinh);
+		break;
+
+	case '4':// Doi phong ban
+	{
+		char MaPB[5];
+		cout << "Nhap MaPB: ";
+		cin >> MaPB;
+
+		Department* de = this->FilterDepartmentById(MaPB);
+		if (de == NULL) {
+			cout << "Ma phong ban khong chinh xac.";
+			cout << "Thay doi that bai!" << endl;
+			Sleep(3000);
+			return;
+		}
+		employers[pos]->SetDepartment(de);
+		break;
+	}
+
+	case 'Q':
+		return;
+	default:
+		return;
+	}
+	cout << "Thay doi thanh cong!" << endl << endl;
+	employers[pos]->XuatNhanVien();
+	Sleep(3000);
 }
 
 Department* Manage::FilterDepartmentById(char MaPhong[5]) {

@@ -20,13 +20,16 @@ public:
 	Employer();
 	~Employer();
 	char* GetMaNV();
+	void SetTenNV(char * TenNV);
+	void SetSoDT(char * SoDT);
+	void SetNgSinh(char * NgSinh);
+
 
 	// void addEmployer(char MaNV[4], char TenNV[150], char SoDT[20], char NgSinh);
 	virtual void NhapNhanVien();
 	virtual void XuatNhanVien();
 
 	void SetDepartment(Department* department);
-
 
 
 
