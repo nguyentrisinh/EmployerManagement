@@ -22,6 +22,7 @@ public:
 	char* GetMaNV();
 	char* GetTenNV();
 	char* GetLoaiNV();
+	Department* GetDeparment();
 	void SetTenNV(char * TenNV);
 	void SetSoDT(char * SoDT);
 	void SetNgSinh(char * NgSinh);

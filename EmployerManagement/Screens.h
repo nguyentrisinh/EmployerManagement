@@ -11,6 +11,7 @@ static class Screens
 {
 private:
 	static void DisplayEmployerListItem(Employer* employer);
+	static void DisplayDepartmentListItem(Department* department);
 
 public:
 	Screens();
@@ -21,5 +22,8 @@ public:
 	static char DisplayMainScreen();
 	static char DisplayEmployerScreen(Employer *employer);
 	static char DisplayListEmployerScreen(vector<Employer*> employers);
+	static char DisplayListDepartmentScreen(vector<Department*> employers);
+	static char DisplayEmployerConstrolsScreen();
+	static char DisplayDepartmentConstrolsScreen();
 };
 

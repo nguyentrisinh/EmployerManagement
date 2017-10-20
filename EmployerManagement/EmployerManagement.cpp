@@ -9,21 +9,37 @@
 int main()
 {
 	Manage* manage = new Manage();
-	manage->NhapDepartment();
-	manage->NhapNhanVien();
-	////system("cls");
-	//manage->CreateDummyData();
-	//manage->XuatNhanVien();
-	//cout << "---------------------------------" << endl;
+	manage->CreateDummyData();
+	Screens::DisplayListEmployerScreen(manage->GetListEmployers());
+
+	//char key = Screens::DisplayMainScreen();;
+	//while (key != 'T' && key != 't') {
+	//	switch (key) {
+	//	case '1':
+	//		Screens::
+	//		break;
+
+	//	case '2':
+	//		break;
+
+	//	default:
+	//	}
+		//manage->NhapDepartment();
+		//manage->NhapNhanVien();
+		
+		//manage->CreateDummyData();
+		//manage->XuatNhanVien();
+		//cout << "---------------------------------" << endl;
 
 
-	//manage->XoaNhanVien();
-	//system("cls");
-	manage->XuatNhanVien();
+		//manage->XoaNhanVien();
+		//system("cls");
+		//manage->XuatNhanVien();
 
-	//manage->SuaNhanVien();
-	//Screens::DisplayListEmployerScreen(manage->GetListEmployers());
-	system("pause");
+		//manage->SuaNhanVien();
+		//Screens::DisplayListEmployerScreen(manage->GetListEmployers());
+	//}
+	//system("pause");
     return 0;
 }
 

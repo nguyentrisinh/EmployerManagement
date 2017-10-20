@@ -51,9 +51,24 @@ char Screens::DisplayMainScreen()
 	cout << "            QUAN LY NHAN VIEN & PHONG BAN" << endl;
 	cout << "=======================================================" << endl << endl;
 
+	cout << "      +--------------------------------------+" << endl;
+	cout << "      |  1. Phong ban                        |" << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << "      |  2. Nhan vien                        |" << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << endl << endl;
+	cout << "   <- T. Thoat" << endl;
 
 
-	return ' ';
+	// Controls
+	string controlKeys = "12Tt";
+	char key = ' ';
+	while (controlKeys.find(key) == std::string::npos) {
+		key = _getch();
+	}
+	return key;
 }
 
 char Screens::DisplayEmployerScreen(Employer *employer)
@@ -80,9 +95,9 @@ char Screens::DisplayListEmployerScreen(vector<Employer*> employers)
 {
 	// Header
 	cout << "=============================================" << endl;
-	cout << "           THONG TIN NHAN VIEN" << endl;
+	cout << "           DANH SACH NHAN VIEN" << endl;
 	cout << "=============================================" << endl << endl << endl;
-	cout << "\tMaNV\t|\t\tHo ten\t\t\t|\t\tLoai\t\t|" << endl;
+	cout << "\tMaNV\t|\t\tHo ten\t\t|\tLoai\t\t|\tPhong ban\t|" << endl;
 	cout << "=================================================================================================" << endl;
 	
 	// List employer
@@ -100,12 +115,97 @@ char Screens::DisplayListEmployerScreen(vector<Employer*> employers)
 	return key;
 }
 
+char Screens::DisplayListDepartmentScreen(vector<Department*> deparments)
+{
+	// Header
+	cout << "=============================================" << endl;
+	cout << "           DANH SACH PHONG BAN" << endl;
+	cout << "=============================================" << endl << endl << endl;
+	cout << "\tMaNV\t|\t\tTen phong" << endl;
+	cout << "=================================================================================================" << endl;
+
+	// List employer
+	for (int i = 0; i < deparments.size(); i++) {
+		Screens::DisplayDepartmentListItem(deparments[i]);
+	}
+	cout << endl << "\t<- Q. Quay lai" << "\t\t" << "C. Xem chi tiet ->" << endl;
+
+	// Controls
+	string controlKeys = "QqCc";
+	char key = ' ';
+	while (controlKeys.find(key) == std::string::npos) {
+		key = _getch();
+	}
+	return key;
+}
+
+char Screens::DisplayEmployerConstrolsScreen()
+{
+	// Header
+	cout << "=============================================" << endl;
+	cout << "           QUAN LY NHAN VIEN" << endl;
+	cout << "=============================================" << endl << endl;
+
+	//Thong tin nhan vien
+	cout << "      +--------------------------------------+" << endl;
+	cout << "      |  1. Them nhan vien                   |" << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << "      |  2. Xem danh sach nhan vien          |" << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << endl << endl;
+	cout << " <- Q. Quay lai" << endl << endl;
+
+	string controlKeys = "Qq";
+	char key = ' ';
+	while (controlKeys.find(key) == std::string::npos) {
+		key = _getch();
+	}
+	//cout << key << '\t' << endl;
+	return key;
+}
+
+char Screens::DisplayDepartmentConstrolsScreen()
+{
+	// Header
+	cout << "=============================================" << endl;
+	cout << "           QUAN LY PHONG BAN" << endl;
+	cout << "=============================================" << endl << endl;
+
+	//Thong tin nhan vien
+	cout << "      +--------------------------------------+" << endl;
+	cout << "      |  1. Them phong ban                   |" << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << "      |  2. Xem danh sach phong ban          |" << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << endl << endl;
+	cout << " <- Q. Quay lai" << endl << endl;
+
+	string controlKeys = "Qq";
+	char key = ' ';
+	while (controlKeys.find(key) == std::string::npos) {
+		key = _getch();
+	}
+	return key;
+}
+
 void Screens::DisplayEmployerListItem(Employer * employer)
 {
 	cout << "\t" << employer->GetMaNV() << "\t";
-	cout << "\t" << employer->GetTenNV() << "\t\t\t";
-	cout << "\t" << employer->GetLoaiNV() << "\t" << endl;
+	cout << "\t" << employer->GetTenNV() << "\t\t";
+	cout << "\t" << employer->GetLoaiNV() << "\t";
+	cout << "\t" << employer->GetDeparment()->TenPhong << endl;
 	cout << "-------------------------------------------------------------------------------------------------" << endl;
 
+}
+
+void Screens::DisplayDepartmentListItem(Department* department)
+{
+	cout << "\t" << department->MaPhong << "\t";
+	cout << "\t" << department->TenPhong << "\t\t\t";
+	cout << "-------------------------------------------------------------------------------------------------" << endl;
 }
 

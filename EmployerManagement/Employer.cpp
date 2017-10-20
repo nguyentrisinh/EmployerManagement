@@ -27,6 +27,11 @@ char * Employer::GetLoaiNV()
 	return this->LoaiNV == 1 ? "Bien che" : "Cong nhat";
 }
 
+Department * Employer::GetDeparment()
+{
+	return this->department;
+}
+
 void Employer::SetTenNV(char *TenNV)
 {
 	strcpy_s(this->TenNV, TenNV);
