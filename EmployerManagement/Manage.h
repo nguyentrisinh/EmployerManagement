@@ -41,6 +41,8 @@ public:
 
 	void NhapLuong();
 	void XuatLuong();
+	Salary* GetMaxSalaryByMonthYear(int month, int year);
+	void XuatNhanVienMaxLuong();
 	
 	vector<Employer*> DanhSachNhanVienTheoPhongBan();
 

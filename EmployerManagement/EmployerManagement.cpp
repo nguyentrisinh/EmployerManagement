@@ -14,6 +14,8 @@ int main()
 	manage->CreateDummyData();
 
 	manage->NhapLuong();
+	manage->NhapLuong();
+
 	manage->XuatLuong();
 
 	//ScreenType screenType = MAIN_SCREEN;
