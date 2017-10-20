@@ -13,6 +13,7 @@ Screens::~Screens()
 
 char Screens::DisplayEditEmployerScreen(Employer* employer)
 {
+	system("cls");
 	// Header
 	cout << "=============================================" << endl;
 	cout << "\t\tSUA NHAN VIEN" << endl;
@@ -46,6 +47,7 @@ char Screens::DisplayEditEmployerScreen(Employer* employer)
 
 char Screens::DisplayMainScreen()
 {
+	system("cls");
 	// Header
 	cout << "=======================================================" << endl;
 	cout << "            QUAN LY NHAN VIEN & PHONG BAN" << endl;
@@ -73,6 +75,7 @@ char Screens::DisplayMainScreen()
 
 char Screens::DisplayEmployerScreen(Employer *employer)
 {
+	system("cls");
 	// Header
 	cout << "=============================================" << endl;
 	cout << "           THONG TIN NHAN VIEN" << endl;
@@ -93,6 +96,7 @@ char Screens::DisplayEmployerScreen(Employer *employer)
 
 char Screens::DisplayListEmployerScreen(vector<Employer*> employers)
 {
+	system("cls");
 	// Header
 	cout << "=============================================" << endl;
 	cout << "           DANH SACH NHAN VIEN" << endl;
@@ -117,6 +121,7 @@ char Screens::DisplayListEmployerScreen(vector<Employer*> employers)
 
 char Screens::DisplayListDepartmentScreen(vector<Department*> deparments)
 {
+	system("cls");
 	// Header
 	cout << "=============================================" << endl;
 	cout << "           DANH SACH PHONG BAN" << endl;
@@ -141,6 +146,7 @@ char Screens::DisplayListDepartmentScreen(vector<Department*> deparments)
 
 char Screens::DisplayEmployerConstrolsScreen()
 {
+	system("cls");
 	// Header
 	cout << "=============================================" << endl;
 	cout << "           QUAN LY NHAN VIEN" << endl;
@@ -157,7 +163,7 @@ char Screens::DisplayEmployerConstrolsScreen()
 	cout << endl << endl;
 	cout << " <- Q. Quay lai" << endl << endl;
 
-	string controlKeys = "Qq";
+	string controlKeys = "12Qq";
 	char key = ' ';
 	while (controlKeys.find(key) == std::string::npos) {
 		key = _getch();
@@ -168,6 +174,7 @@ char Screens::DisplayEmployerConstrolsScreen()
 
 char Screens::DisplayDepartmentConstrolsScreen()
 {
+	system("cls");
 	// Header
 	cout << "=============================================" << endl;
 	cout << "           QUAN LY PHONG BAN" << endl;
@@ -184,7 +191,7 @@ char Screens::DisplayDepartmentConstrolsScreen()
 	cout << endl << endl;
 	cout << " <- Q. Quay lai" << endl << endl;
 
-	string controlKeys = "Qq";
+	string controlKeys = "12Qq";
 	char key = ' ';
 	while (controlKeys.find(key) == std::string::npos) {
 		key = _getch();
