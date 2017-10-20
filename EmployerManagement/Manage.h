@@ -35,6 +35,8 @@ public:
 	void XoaNhanVien();
 	void SuaNhanVien();
 	
+	vector<Employer*> DanhSachNhanVienTheoPhongBan();
+
 
 
 
@@ -44,7 +46,12 @@ public:
 	Employer* GetEmployer(int pos) {
 		return employers[pos];
 	}
-	vector <Employer*> GetListEmployers() {
+
+	vector <Employer*> GetListEmployer() {
 		return employers;
+	}
+
+	vector <Department*> GetListDepartment() {
+		return departments;
 	}
 };

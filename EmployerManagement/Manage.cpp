@@ -3,8 +3,9 @@
 
 
 void Manage::NhapDepartment() {
+	system("cls");
 	int departmentCount;
-	cout << "Nhap so phong ban:"; 
+	cout << "Nhap so phong ban: "; 
 	cin >> departmentCount;
 	while (departmentCount <= 0) {
 		cout << "So phong ban phai > 0. Xin vui long nhap lai so phong ban:";
@@ -14,11 +15,13 @@ void Manage::NhapDepartment() {
 	for (int i = 0; i < departmentCount; i++)
 	{
 		Department *department = new Department ();
-		cout << "-----------------------------------" << endl;
-		cout << "Nhap phong ban thu " << i + 1 << endl;
+		cout << endl << "Phong ban " << i + 1 << "\n--------------------------" << endl;
 		department->NhapPhong();
 		departments.push_back(department);
 	}
+
+	cout << endl << "Nhap phong ban thanh cong!" << endl;
+	Sleep(3000);
 }
 
 
@@ -31,9 +34,11 @@ void Manage::XuatDepartment() {
 }
 
 
-void Manage::NhapDanhSachNhanVien() {
+void Manage::NhapDanhSachNhanVien()
+{
+	system("cls");
 	int employerCount;
-	cout << "Nhap so nhan vien:";
+	cout << "Nhap so nhan vien: ";
 	cin >> employerCount;
 	// scanf_s("%d", &this->departmentCount);
 	while (employerCount <= 0) {
@@ -43,6 +48,7 @@ void Manage::NhapDanhSachNhanVien() {
 	cin.ignore();
 
 	for (int i = 0; i < employerCount; i++){
+		cout << endl << "Nhan vien " << i + 1 << "\n--------------------------" << endl;
 		NhapNhanVien();
 	}
 	system("cls");
@@ -87,7 +93,6 @@ void Manage::NhapNhanVien()
 	cout << "MaPhong: ";
 	cin >> MaPhong;
 	Department* phongBan = this->FilterDepartmentById(MaPhong);
-
 	while (phongBan == NULL) {
 		cout << "Phong ban " << MaPhong << " khong ton tai! Xin vui long nhap MaPhong khac." << endl;
 		cout << "MaPhong: ";
@@ -214,6 +219,29 @@ void Manage::SuaNhanVien()
 	cout << "Thay doi thanh cong!" << endl << endl;
 	employers[pos]->XuatNhanVien();
 	Sleep(3000);
+}
+
+vector<Employer*> Manage::DanhSachNhanVienTheoPhongBan()
+{
+	system("cls");
+	char MaPhong[5];
+	cout << "Nhap MaPhong de loc: ";
+	cin >> MaPhong;
+	Department* phongBan = this->FilterDepartmentById(MaPhong);
+	while (phongBan == NULL) {
+		cout << "Phong ban " << MaPhong << " khong ton tai! Xin vui long nhap MaPhong khac." << endl;
+		cout << "MaPhong: ";
+		cin >> MaPhong;
+		phongBan = this->FilterDepartmentById(MaPhong);
+	}
+
+	vector<Employer*> fitterEmployers;
+	for (int i = 0; i < employers.size(); i++) {
+		char *MaPB = employers[i]->GetDeparment()->MaPhong;
+		if (std::strcmp(MaPB, MaPhong) == 0)
+		fitterEmployers.push_back(employers[i]);
+	}
+	return fitterEmployers;
 }
 
 Department* Manage::FilterDepartmentById(char MaPhong[5]) {

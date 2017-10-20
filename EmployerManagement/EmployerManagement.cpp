@@ -21,7 +21,7 @@ int main()
 			key = Screens::DisplayMainScreen();
 			switch (key) {
 			case '1':
-				//screenType = DEPARTMENT_CONTROLS_SCREEN;
+				screenType = DEPARTMENT_CONTROLS_SCREEN;
 				break;
 
 			case '2':
@@ -34,35 +34,39 @@ int main()
 			key = Screens::DisplayEmployerConstrolsScreen();
 			switch (key) {
 			case '1':
-				screenType = ADD_EMPLOYERS_SCREEN;
+				//screenType = ADD_EMPLOYERS_SCREEN;
+				manage->NhapDanhSachNhanVien();
 				break;
 
 			case '2':
 				screenType = EMPLOYER_LIST_SCREEN;
-				break;
+				continue;
 
 			case '3':
-				screenType = EMPLOYER_DETAIL_SCREEN;
+				//screenType = EMPLOYER_DETAIL_SCREEN;
+				manage->XuatNhanVien();
 				break;
 
 			case '4':
-				screenType = EDIT_EMPLOYER_SCREEN;
+				//screenType = EDIT_EMPLOYER_SCREEN;
+				manage->SuaNhanVien();
 				break;
 
 			case '5':
-				screenType = DELETE_EMPLOYER_SCREEN;
+				//screenType = DELETE_EMPLOYER_SCREEN;
+				manage->XoaNhanVien();
 				break;
 
 			case 'Q':
 			case 'q':
 				screenType = MAIN_SCREEN;
-				key = ' ';
-				break;
+				continue;
 			}
+			screenType = EMPLOYER_CONTROLS_SCREEN;
 			continue;
 		}
 		
-		if (screenType == ADD_EMPLOYERS_SCREEN) {
+		/*if (screenType == ADD_EMPLOYERS_SCREEN) {
 			manage->NhapDanhSachNhanVien();
 			screenType = EMPLOYER_CONTROLS_SCREEN;
 			continue;
@@ -81,12 +85,13 @@ int main()
 			manage->XuatNhanVien();
 			screenType = EMPLOYER_CONTROLS_SCREEN;
 			continue;
-		}
+		}*/
 
 		if (screenType == EMPLOYER_LIST_SCREEN) {
-			key = Screens::DisplayListEmployerScreen(manage->GetListEmployers());
+			key = Screens::DisplayListEmployerScreen(manage->GetListEmployer());
 			switch (key) {
 			case '1':
+				Screens::DisplayFittedListEmployerScreen(manage->DanhSachNhanVienTheoPhongBan());
 				break;
 
 			case '2':
@@ -115,16 +120,18 @@ int main()
 			}
 			continue;
 		}*/
-/*
+
 		if (screenType == DEPARTMENT_CONTROLS_SCREEN) {
 			key = Screens::DisplayDepartmentConstrolsScreen();
 			switch (key) {
 			case '1':
-				screenType = ADD_DEPARTMENT_SCREEN;
+				//screenType = ADD_DEPARTMENT_SCREEN;
+				manage->NhapDepartment();
 				break;
 
 			case '2':
-				screenType = DEPARTMENT_LIST_SCREEN;
+				//screenType = DEPARTMENT_LIST_SCREEN;
+				Screens::DisplayListDepartmentScreen(manage->GetListDepartment());
 				break;
 
 			case 'Q':
@@ -133,12 +140,12 @@ int main()
 				break;
 			}
 			continue;
-		}*/
+		}
 	} while (key != 'T' && key != 't');
 
 
 
-	system("pause");
+	//system("pause");
     return 0;
 }
 

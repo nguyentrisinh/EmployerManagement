@@ -26,5 +26,6 @@ public:
 	static char DisplayEmployerConstrolsScreen();
 	static char DisplayDepartmentConstrolsScreen();
 	static char DisplayAddEmployerScreen();
+	static char DisplayFittedListEmployerScreen(vector<Employer*> employers);
 };
 

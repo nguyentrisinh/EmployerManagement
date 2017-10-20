@@ -11,15 +11,15 @@ Department::~Department() {
 }
 
 void Department::NhapPhong() {
-	cout << "Nhap ma phong:"; 
-	gets_s(MaPhong);
-	cout << "Nhap ten phong:"; 
-	gets_s(TenPhong);
+	cout << "Nhap ma phong: "; 
+	cin >> MaPhong;
+	cout << "Nhap ten phong: "; 
+	cin >> TenPhong;
 }
 
 void Department::XuatPhong() {
-	cout << "Ma phong:" << MaPhong << "\n";
-	cout << "Ten phong:" << TenPhong << "\n";
+	cout << "Ma phong: " << MaPhong << "\n";
+	cout << "Ten phong: " << TenPhong << "\n";
 }
 
 

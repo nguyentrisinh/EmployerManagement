@@ -49,13 +49,13 @@ void Employer::SetNgSinh(char * NgSinh)
 
 void Employer::NhapNhanVien() {
 	cout << "MaNV: ";
-	gets_s(MaNV);
+	cin >> MaNV;
 	cout << "Ho ten: ";
-	gets_s(TenNV);
+	cin >> TenNV;
 	cout << "SDT:";
-	gets_s(SoDT);
+	cin >> SoDT;
 	cout << "Ngay sinh:";
-	gets_s(NgSinh);
+	cin >> NgSinh;
 }
 
 void Employer::XuatNhanVien() {
