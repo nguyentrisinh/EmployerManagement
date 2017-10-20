@@ -16,7 +16,7 @@ int main()
 	manage->NhapLuong();
 	manage->NhapLuong();
 
-	manage->XuatLuong();
+	manage->XuatNhanVienMaxLuong();
 
 	//ScreenType screenType = MAIN_SCREEN;
 	//char key = ' ';
