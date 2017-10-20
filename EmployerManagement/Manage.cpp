@@ -14,9 +14,18 @@ void Manage::NhapDepartment() {
 	cin.ignore();
 	for (int i = 0; i < departmentCount; i++)
 	{
+		char MaPhong[5];
 		Department *department = new Department ();
 		cout << endl << "Phong ban " << i + 1 << "\n--------------------------" << endl;
-		department->NhapPhong();
+		cout << "Nhap ma phong: ";
+		cin >> MaPhong;
+		while (FilterDepartmentById(MaPhong))
+		{
+			cout << "Ma phong da ton tai. Xin vui long nhap ma phong khac: ";
+			cin >> MaPhong;
+		}
+
+		department->NhapPhong(MaPhong);
 		departments.push_back(department);
 	}
 
@@ -86,8 +95,14 @@ void Manage::NhapNhanVien()
 		return;
 	}
 	emp->LoaiNV = type;
-	cin.ignore();
-	emp->NhapNhanVien();
+	char MaNV[5];
+	cout << "Nhap ma nhan vien: ";
+	cin >> MaNV;
+	while (TimViTriNhanVien(MaNV) != -1){
+		cout << "MaNV da ton tai. Xin vui long nhap MaNV khac: ";
+		cin >> MaNV;
+	}
+	emp->NhapNhanVien(MaNV);
 
 	char MaPhong[5];
 	cout << "MaPhong: ";
@@ -125,7 +140,7 @@ int Manage::TimViTriNhanVien(const char * MaNV)
 		if (std::strcmp(employers[i]->GetMaNV(), MaNV) == 0)
 			return i;
 	}
-	cout << "Khong tim thay nhan vien tuong ung" << endl;
+	//cout << "Khong tim thay nhan vien tuong ung" << endl;
 	return -1;
 }
 
@@ -141,6 +156,7 @@ void Manage::XoaNhanVien()
 	// Tim nhan vien
 	int pos = TimViTriNhanVien(MaNV);
 	if (pos == -1){
+		cout << "Khong tim thay nhan vien tuong ung" << endl;
 		cout << "Xoa nhan vien that bai!" << endl;
 		Sleep(3000);
 		return;
@@ -164,6 +180,7 @@ void Manage::SuaNhanVien()
 	// Tim nhan vien
 	int pos = TimViTriNhanVien(MaNV);
 	if (pos == -1) {
+		cout << "Khong tim thay nhan vien tuong ung" << endl;
 		cout << "Sua nhan vien that bai!" << endl;
 		return;
 	}
@@ -247,11 +264,11 @@ vector<Employer*> Manage::DanhSachNhanVienTheoPhongBan()
 Department* Manage::FilterDepartmentById(char MaPhong[5]) {
 	for (int i = 0; i < departments.size(); i++) {
 		if (strcmp(this->departments[i]->MaPhong, MaPhong) == 0) {
-			cout << this->departments[i]->TenPhong << endl;
+			//cout << this->departments[i]->TenPhong << endl;
 			return this->departments[i];
 		}
 	}
-	cout << "Can't find anything" << endl;
+	//cout << "Can't find anything" << endl;
 	return NULL;
 }
 

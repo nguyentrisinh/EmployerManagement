@@ -10,9 +10,8 @@ Department::~Department() {
 
 }
 
-void Department::NhapPhong() {
-	cout << "Nhap ma phong: "; 
-	cin >> MaPhong;
+void Department::NhapPhong(char* MaPhong) {
+	strcpy_s(this->MaPhong, MaPhong);
 	cout << "Nhap ten phong: "; 
 	cin >> TenPhong;
 }

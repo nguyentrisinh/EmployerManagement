@@ -29,7 +29,7 @@ public:
 
 
 	// void addEmployer(char MaNV[4], char TenNV[150], char SoDT[20], char NgSinh);
-	virtual void NhapNhanVien();
+	virtual void NhapNhanVien(char *MaNV);
 	virtual void XuatNhanVien();
 
 	void SetDepartment(Department* department);

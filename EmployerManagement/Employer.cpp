@@ -47,9 +47,8 @@ void Employer::SetNgSinh(char * NgSinh)
 	strcpy_s(this->NgSinh, NgSinh);
 }
 
-void Employer::NhapNhanVien() {
-	cout << "MaNV: ";
-	cin >> MaNV;
+void Employer::NhapNhanVien(char *MaNV) {
+	strcpy_s(this->MaNV, MaNV);
 	cout << "Ho ten: ";
 	cin >> TenNV;
 	cout << "SDT:";

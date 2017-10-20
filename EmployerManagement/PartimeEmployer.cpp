@@ -11,8 +11,8 @@ PartimeEmployer::~PartimeEmployer()
 {
 }
 
-void PartimeEmployer::NhapNhanVien() {
-	Employer::NhapNhanVien();
+void PartimeEmployer::NhapNhanVien(char* MaNV) {
+	Employer::NhapNhanVien(MaNV);
 	cout << "Nhap luong ngay: ";
 	cin >> SalaryPerDay;
 }

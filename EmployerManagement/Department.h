@@ -15,7 +15,7 @@ public:
 	Department();
 	~Department();
 
-	void NhapPhong();
+	void NhapPhong(char* MaPhong);
 	void XuatPhong();
 
 

@@ -13,8 +13,8 @@ FulltimeEmployer::~FulltimeEmployer()
 
 }
 
-void FulltimeEmployer::NhapNhanVien() {
-	Employer::NhapNhanVien();
+void FulltimeEmployer::NhapNhanVien(char* MaNV) {
+	Employer::NhapNhanVien(MaNV);
 	cout << "Nhap Luong co ban: ";
 	cin >> SalaryPerMonth;
 	cout << "Nhap He so luong: ";

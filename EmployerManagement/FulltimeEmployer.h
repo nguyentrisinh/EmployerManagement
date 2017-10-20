@@ -12,7 +12,7 @@ public :
 public:
 	FulltimeEmployer();
 	~FulltimeEmployer();
-	virtual void NhapNhanVien();
+	virtual void NhapNhanVien(char* MaNV);
 	virtual void XuatNhanVien();
 };
 

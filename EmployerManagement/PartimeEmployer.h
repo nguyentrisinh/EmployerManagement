@@ -8,7 +8,7 @@ public:
 public:
 	PartimeEmployer();
 	~PartimeEmployer();
-	virtual void NhapNhanVien();
+	virtual void NhapNhanVien(char* MaNV);
 	virtual void XuatNhanVien();
 };
 
