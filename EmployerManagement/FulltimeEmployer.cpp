@@ -25,7 +25,7 @@ void FulltimeEmployer::NhapNhanVien() {
 
 void FulltimeEmployer::XuatNhanVien() {
 	Employer::XuatNhanVien();
-	cout << "Luong co ban" << SalaryPerMonth << endl;
-	cout << "He so luong" << SalaryLevel << endl;
+	cout << "Luong co ban:" << SalaryPerMonth << endl;
+	cout << "He so luong:" << SalaryLevel << endl;
 	cout << "Tien tro cap: " << Allowance << endl;
 }
