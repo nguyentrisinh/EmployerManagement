@@ -48,6 +48,12 @@
     <ClInclude Include="PartimeEmployer.h">
       <Filter>Manage\headers</Filter>
     </ClInclude>
+    <ClInclude Include="Salary.h">
+      <Filter>Manage\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="FullTimeSalary.h">
+      <Filter>Manage\headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -69,6 +75,12 @@
       <Filter>Manage\sources</Filter>
     </ClCompile>
     <ClCompile Include="PartimeEmployer.cpp">
+      <Filter>Manage\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Salary.cpp">
+      <Filter>Manage\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="FullTimeSalary.cpp">
       <Filter>Manage\sources</Filter>
     </ClCompile>
   </ItemGroup>

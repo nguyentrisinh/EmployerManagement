@@ -149,8 +149,10 @@
     <ClInclude Include="Department.h" />
     <ClInclude Include="Employer.h" />
     <ClInclude Include="FulltimeEmployer.h" />
+    <ClInclude Include="FullTimeSalary.h" />
     <ClInclude Include="Manage.h" />
     <ClInclude Include="PartimeEmployer.h" />
+    <ClInclude Include="Salary.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -159,8 +161,10 @@
     <ClCompile Include="Employer.cpp" />
     <ClCompile Include="EmployerManagement.cpp" />
     <ClCompile Include="FulltimeEmployer.cpp" />
+    <ClCompile Include="FullTimeSalary.cpp" />
     <ClCompile Include="Manage.cpp" />
     <ClCompile Include="PartimeEmployer.cpp" />
+    <ClCompile Include="Salary.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
