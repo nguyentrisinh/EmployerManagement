@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "Manage.h"
 
 
@@ -236,7 +236,7 @@ void Manage::SuaNhanVien()
 		break;
 
 	case '7':
-		cout << "   | 7. Sua bac luong             |" << endl;
+		cout << "   | 7. Sửa trợ cấp             |" << endl;
 		break;
 
 	case 'Q':
@@ -255,8 +255,8 @@ void Manage::SuaNhanVien()
 void Manage::NhapLuong() {
 	// Input nam and thang to counting salary
 	int nam, thang;
-	cout << "Nhap nam muon tinh luong:"; cin >> nam;
-	cout << "Nhap thang muon tinh luong:"; cin >> thang;
+	cout << "Nhap nam muon tinh luong: "; cin >> nam;
+	cout << "Nhap thang muon tinh luong: "; cin >> thang;
 
 	for (int i = 0; i < this->employers.size(); i++) {
 		Employer* employer = employers[i];
@@ -284,6 +284,14 @@ void Manage::XuatLuong() {
 	for (int i = 0; i < this->salaries.size(); i++) {
 		salaries[i]->XuatLuong();
 	}
+}
+
+void Manage::XuatBangTinhLuong()
+{
+	system("cls");
+	NhapLuong();
+	system("cls");
+	Screens::DisplayListEmployerBySalary(this->employers, this->salaries, salaries[0]->Thang, salaries[0]->Nam);
 }
 
 Salary* Manage::GetMaxSalaryByMonthYear(int month, int year) {

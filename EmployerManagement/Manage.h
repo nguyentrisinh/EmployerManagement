@@ -41,6 +41,7 @@ public:
 
 	void NhapLuong();
 	void XuatLuong();
+	void XuatBangTinhLuong();
 	Salary* GetMaxSalaryByMonthYear(int month, int year);
 	void XuatNhanVienMaxLuong();
 	

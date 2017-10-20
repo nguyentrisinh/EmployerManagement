@@ -89,10 +89,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Screens.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PartTimeSalary.cpp">
+      <Filter>Manage\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Screens.cpp">
       <Filter>Manage\sources</Filter>
     </ClCompile>
   </ItemGroup>

@@ -7,6 +7,7 @@
 #include <vector>
 #include "Employer.h"
 #include "FulltimeEmployer.h"
+#include "Salary.h"
 
 using namespace std;
 static class Screens
@@ -29,5 +30,6 @@ public:
 	static char DisplayDepartmentConstrolsScreen();
 	static char DisplayAddEmployerScreen();
 	static char DisplayFittedListEmployerScreen(vector<Employer*> employers);
+	static char DisplayListEmployerBySalary(vector<Employer*> employers, vector<Salary*> salary, int thang, int nam);
 };
 
