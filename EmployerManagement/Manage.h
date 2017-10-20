@@ -7,6 +7,8 @@
 //#include "Employer.h"
 #include "PartimeEmployer.h"
 #include "FulltimeEmployer.h"
+#include "FullTimeSalary.h"
+#include "PartTImeSalary.h"
 #include "Screens.h"
 #include <windows.h>
 
@@ -16,6 +18,7 @@ class Manage {
 private:
 	vector<Department*> departments;
 	vector<Employer*> employers;
+	vector<Salary*> salaries;
 
 public:
 	Manage() {}
@@ -35,6 +38,9 @@ public:
 	void XuatNhanVien();
 	void XoaNhanVien();
 	void SuaNhanVien();
+
+	void NhapLuong();
+	void XuatLuong();
 	
 	vector<Employer*> DanhSachNhanVienTheoPhongBan();
 

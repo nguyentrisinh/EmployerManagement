@@ -13,135 +13,138 @@ int main()
 	Manage* manage = new Manage();
 	manage->CreateDummyData();
 
-	ScreenType screenType = MAIN_SCREEN;
-	char key = ' ';
+	manage->NhapLuong();
+	manage->XuatLuong();
 
-	do {
-		if (screenType == MAIN_SCREEN) {
-			key = Screens::DisplayMainScreen();
-			switch (key) {
-			case '1':
-				screenType = DEPARTMENT_CONTROLS_SCREEN;
-				break;
+	//ScreenType screenType = MAIN_SCREEN;
+	//char key = ' ';
 
-			case '2':
-				screenType = EMPLOYER_CONTROLS_SCREEN;
-				break;
-			}
-			continue;
-		}
-		if (screenType == EMPLOYER_CONTROLS_SCREEN) {
-			key = Screens::DisplayEmployerConstrolsScreen();
-			switch (key) {
-			case '1':
-				//screenType = ADD_EMPLOYERS_SCREEN;
-				manage->NhapDanhSachNhanVien();
-				break;
+	//do {
+	//	if (screenType == MAIN_SCREEN) {
+	//		key = Screens::DisplayMainScreen();
+	//		switch (key) {
+	//		case '1':
+	//			screenType = DEPARTMENT_CONTROLS_SCREEN;
+	//			break;
 
-			case '2':
-				screenType = EMPLOYER_LIST_SCREEN;
-				continue;
+	//		case '2':
+	//			screenType = EMPLOYER_CONTROLS_SCREEN;
+	//			break;
+	//		}
+	//		continue;
+	//	}
+	//	if (screenType == EMPLOYER_CONTROLS_SCREEN) {
+	//		key = Screens::DisplayEmployerConstrolsScreen();
+	//		switch (key) {
+	//		case '1':
+	//			//screenType = ADD_EMPLOYERS_SCREEN;
+	//			manage->NhapDanhSachNhanVien();
+	//			break;
 
-			case '3':
-				//screenType = EMPLOYER_DETAIL_SCREEN;
-				manage->XuatNhanVien();
-				break;
+	//		case '2':
+	//			screenType = EMPLOYER_LIST_SCREEN;
+	//			continue;
 
-			case '4':
-				//screenType = EDIT_EMPLOYER_SCREEN;
-				manage->SuaNhanVien();
-				break;
+	//		case '3':
+	//			//screenType = EMPLOYER_DETAIL_SCREEN;
+	//			manage->XuatNhanVien();
+	//			break;
 
-			case '5':
-				//screenType = DELETE_EMPLOYER_SCREEN;
-				manage->XoaNhanVien();
-				break;
+	//		case '4':
+	//			//screenType = EDIT_EMPLOYER_SCREEN;
+	//			manage->SuaNhanVien();
+	//			break;
 
-			case 'Q':
-			case 'q':
-				screenType = MAIN_SCREEN;
-				continue;
-			}
-			screenType = EMPLOYER_CONTROLS_SCREEN;
-			continue;
-		}
-		
-		/*if (screenType == ADD_EMPLOYERS_SCREEN) {
-			manage->NhapDanhSachNhanVien();
-			screenType = EMPLOYER_CONTROLS_SCREEN;
-			continue;
-		}
-		if (screenType == EDIT_EMPLOYER_SCREEN) {
-			manage->SuaNhanVien();
-			screenType = EMPLOYER_CONTROLS_SCREEN;
-			continue;
-		}
-		if (screenType == DELETE_EMPLOYER_SCREEN) {
-			manage->XoaNhanVien();
-			screenType = EMPLOYER_CONTROLS_SCREEN;
-			continue;
-		}
-		if (screenType == EMPLOYER_DETAIL_SCREEN) {
-			manage->XuatNhanVien();
-			screenType = EMPLOYER_CONTROLS_SCREEN;
-			continue;
-		}*/
+	//		case '5':
+	//			//screenType = DELETE_EMPLOYER_SCREEN;
+	//			manage->XoaNhanVien();
+	//			break;
 
-		if (screenType == EMPLOYER_LIST_SCREEN) {
-			key = Screens::DisplayListEmployerScreen(manage->GetListEmployer());
-			switch (key) {
-			case '1':
-				Screens::DisplayFittedListEmployerScreen(manage->DanhSachNhanVienTheoPhongBan());
-				break;
+	//		case 'Q':
+	//		case 'q':
+	//			screenType = MAIN_SCREEN;
+	//			continue;
+	//		}
+	//		screenType = EMPLOYER_CONTROLS_SCREEN;
+	//		continue;
+	//	}
+	//	
+	//	/*if (screenType == ADD_EMPLOYERS_SCREEN) {
+	//		manage->NhapDanhSachNhanVien();
+	//		screenType = EMPLOYER_CONTROLS_SCREEN;
+	//		continue;
+	//	}
+	//	if (screenType == EDIT_EMPLOYER_SCREEN) {
+	//		manage->SuaNhanVien();
+	//		screenType = EMPLOYER_CONTROLS_SCREEN;
+	//		continue;
+	//	}
+	//	if (screenType == DELETE_EMPLOYER_SCREEN) {
+	//		manage->XoaNhanVien();
+	//		screenType = EMPLOYER_CONTROLS_SCREEN;
+	//		continue;
+	//	}
+	//	if (screenType == EMPLOYER_DETAIL_SCREEN) {
+	//		manage->XuatNhanVien();
+	//		screenType = EMPLOYER_CONTROLS_SCREEN;
+	//		continue;
+	//	}*/
 
-			case '2':
-				break;
+	//	if (screenType == EMPLOYER_LIST_SCREEN) {
+	//		key = Screens::DisplayListEmployerScreen(manage->GetListEmployer());
+	//		switch (key) {
+	//		case '1':
+	//			Screens::DisplayFittedListEmployerScreen(manage->DanhSachNhanVienTheoPhongBan());
+	//			break;
 
-			case 'Q':
-			case 'q':
-				screenType = EMPLOYER_CONTROLS_SCREEN;
-				break;
-			}
-			continue;
-		}
+	//		case '2':
+	//			break;
 
-		/*if (screenType == DEPARTMENT_LIST_SCREEN) {
-			switch (key) {
-			case '1':
-				break;
+	//		case 'Q':
+	//		case 'q':
+	//			screenType = EMPLOYER_CONTROLS_SCREEN;
+	//			break;
+	//		}
+	//		continue;
+	//	}
 
-			case '2':
-				break;
+	//	/*if (screenType == DEPARTMENT_LIST_SCREEN) {
+	//		switch (key) {
+	//		case '1':
+	//			break;
 
-			case 'Q':
-			case 'q':
-				screenType = EMPLOYER_CONTROLS_SCREEN;
-				break;
-			}
-			continue;
-		}*/
+	//		case '2':
+	//			break;
 
-		if (screenType == DEPARTMENT_CONTROLS_SCREEN) {
-			key = Screens::DisplayDepartmentConstrolsScreen();
-			switch (key) {
-			case '1':
-				//screenType = ADD_DEPARTMENT_SCREEN;
-				manage->NhapDepartment();
-				break;
+	//		case 'Q':
+	//		case 'q':
+	//			screenType = EMPLOYER_CONTROLS_SCREEN;
+	//			break;
+	//		}
+	//		continue;
+	//	}*/
 
-			case '2':
-				//screenType = DEPARTMENT_LIST_SCREEN;
-				Screens::DisplayListDepartmentScreen(manage->GetListDepartment());
-				break;
+	//	if (screenType == DEPARTMENT_CONTROLS_SCREEN) {
+	//		key = Screens::DisplayDepartmentConstrolsScreen();
+	//		switch (key) {
+	//		case '1':
+	//			//screenType = ADD_DEPARTMENT_SCREEN;
+	//			manage->NhapDepartment();
+	//			break;
 
-			case 'Q':
-			case 'q':
-				screenType = MAIN_SCREEN;
-				break;
-			}
-			continue;
-		}
-	} while (key != 'T' && key != 't');
+	//		case '2':
+	//			//screenType = DEPARTMENT_LIST_SCREEN;
+	//			Screens::DisplayListDepartmentScreen(manage->GetListDepartment());
+	//			break;
+
+	//		case 'Q':
+	//		case 'q':
+	//			screenType = MAIN_SCREEN;
+	//			break;
+	//		}
+	//		continue;
+	//	}
+	//} while (key != 'T' && key != 't');
 
 
 

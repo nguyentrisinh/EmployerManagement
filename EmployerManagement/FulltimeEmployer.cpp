@@ -4,7 +4,9 @@
 
 FulltimeEmployer::FulltimeEmployer()
 {
-	
+	Allowance = 80;
+	SalaryPerMonth = 9000;
+	SalaryLevel = 1.6;
 }
 
 

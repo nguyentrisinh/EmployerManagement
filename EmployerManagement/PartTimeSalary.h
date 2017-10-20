@@ -2,15 +2,17 @@
 #include "iostream"
 #include "stdio.h"
 #include "Salary.h"
-#include "FulltimeEmployer.h"
+#include "PartimeEmployer.h"
 
 
-class FullTimeSalary :
-	public Salary 
+class PartTimeSalary :
+	public Salary
 {
 public:
-	FullTimeSalary();
-	~FullTimeSalary();
+	int workingDay;
+
+	PartTimeSalary();
+	~PartTimeSalary();
 
 	virtual void TinhLuong(int thang, int nam, Employer* employer);
 	virtual void XuatLuong();

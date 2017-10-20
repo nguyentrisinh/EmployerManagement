@@ -238,6 +238,43 @@ void Manage::SuaNhanVien()
 	Sleep(3000);
 }
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Salary Management ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Manage::NhapLuong() {
+	// Input nam and thang to counting salary
+	int nam, thang;
+	cout << "Nhap nam muon tinh luong:"; cin >> nam;
+	cout << "Nhap thang muon tinh luong:"; cin >> thang;
+
+	for (int i = 0; i < this->employers.size(); i++) {
+		Employer* employer = employers[i];
+
+		switch (employer->LoaiNV) {
+		case 1:
+		{
+			Salary *salary = new FullTimeSalary();
+			salary->TinhLuong(thang, nam, employer);
+			this->salaries.push_back(salary);
+			break;
+		}
+		case 2:
+		{
+			Salary *partTimeSalary = new PartTimeSalary();
+			partTimeSalary->TinhLuong(thang, nam, employer);
+			this->salaries.push_back(partTimeSalary);
+			break;
+		}
+		}
+	}
+}
+
+void Manage::XuatLuong() {
+	for (int i = 0; i < this->salaries.size(); i++) {
+		salaries[i]->XuatLuong();
+	}
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Output function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 vector<Employer*> Manage::DanhSachNhanVienTheoPhongBan()
 {
 	system("cls");

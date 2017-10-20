@@ -57,6 +57,9 @@
     <ClInclude Include="Screens.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PartTimeSalary.h">
+      <Filter>Manage\headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Department.cpp">
@@ -88,6 +91,9 @@
     </ClCompile>
     <ClCompile Include="Screens.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PartTimeSalary.cpp">
+      <Filter>Manage\sources</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

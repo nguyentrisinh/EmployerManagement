@@ -4,6 +4,7 @@
 
 PartimeEmployer::PartimeEmployer()
 {
+	this->SalaryPerDay = 4000;
 }
 
 
