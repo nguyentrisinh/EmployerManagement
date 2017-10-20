@@ -4,8 +4,6 @@
 #include "Employer.h"
 
 using namespace std;
-
-
 class Salary {
 public:
 	int Thang;
