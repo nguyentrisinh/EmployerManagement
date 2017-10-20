@@ -126,6 +126,7 @@ int Manage::TimViTriNhanVien(const char * MaNV)
 
 void Manage::XoaNhanVien()
 {
+	system("cls");
 	char MaNV[5];
 	cout << "Nhap MaNV cua nhan vien can xoa: ";
 	cin.clear();
@@ -136,16 +137,19 @@ void Manage::XoaNhanVien()
 	int pos = TimViTriNhanVien(MaNV);
 	if (pos == -1){
 		cout << "Xoa nhan vien that bai!" << endl;
+		Sleep(3000);
 		return;
 	}
 
 	// Xoa nhan vien
 	employers.erase(employers.begin() + pos);
 	cout << "Xoa nhan vien thanh cong!" << endl;
+	Sleep(3000);
 }
 
 void Manage::SuaNhanVien()
 {
+	system("cls");
 	char MaNV[5];
 	cout << "Nhap MaNV cua nhan vien can sua: ";
 	cin.clear();
