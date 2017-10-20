@@ -20,6 +20,8 @@ public:
 	Employer();
 	~Employer();
 	char* GetMaNV();
+	char* GetTenNV();
+	char* GetLoaiNV();
 	void SetTenNV(char * TenNV);
 	void SetSoDT(char * SoDT);
 	void SetNgSinh(char * NgSinh);

@@ -37,52 +37,13 @@ void Manage::NhapNhanVien() {
 	cin >> employerCount;
 	// scanf_s("%d", &this->departmentCount);
 	while (employerCount <= 0) {
-		cout << "So phong ban phai > 0. Xin vui long nhap lai so phong ban:";
+		cout << "So nhan vien khong hop le. Xin vui long nhap lai so nhan vien:";
 		cin >> employerCount;
 	}
 	cin.ignore();
 
-	for (int i = 0; i < employerCount; i++)
-	{
-		int choice;
-		do {
-			cout << "Nhap loai nhan vien: (1-Bien che/ 2-Cong nhat)" << endl;
-			cin >> choice;
-		} while (choice != 1 && choice != 2);
-		cin.ignore();
-		cout << "-----------------------------------" << endl;
-		cout << "Nhap nhan vien thu " << i + 1 << endl;
-
-		Employer *employer;
-		switch (choice) {
-		case 1:
-			employer = new FulltimeEmployer();
-			break;
-		case 2:
-			employer = new PartimeEmployer();
-			break;
-
-		default:
-			cout << "Loai nhan vien khong hop le!" << endl;
-			return;
-		}
-		employer->NhapNhanVien();
-		employer->LoaiNV = choice;
-		employers.push_back(employer);
-
-		char MaPhong[5];
-		cout << "Nhap ma phong ban cua nhan vien:";
-		cin >> MaPhong;
-		Department* phongBan = this->FilterDepartmentById(MaPhong);
-
-		while (phongBan == NULL) {
-			cout << "Xin vui long nhap ma phong ban hop le cua nhan vien:";
-			cin >> MaPhong;
-			phongBan = this->FilterDepartmentById(MaPhong);
-		}
-
-		this->employers[i]->SetDepartment(phongBan);
-		
+	for (int i = 0; i < employerCount; i++){
+		ThemMotNhanVien();
 	}
 }
 
@@ -92,6 +53,47 @@ void Manage::XuatNhanVien() {
 		cout << "Thong tin nhan vien thu " << i + 1 << endl;
 		this->employers[i]->XuatNhanVien();
 	}
+}
+
+void Manage::ThemMotNhanVien()
+{
+	int type = -1;
+	while (type != 1 && type != 2) {
+		cout << "Nhap loai nhan vien: (1-Bien che/ 2-Cong nhat): ";
+		cin >> type;
+	} 
+
+	Employer *emp;
+	switch (type) {
+	case 1:
+		emp = new FulltimeEmployer();
+		break;
+	case 2:
+		emp = new PartimeEmployer();
+		break;
+
+	default:
+		cout << "Loai nhan vien khong hop le!" << endl;
+		return;
+	}
+	emp->LoaiNV = type;
+	cin.ignore();
+	emp->NhapNhanVien();
+
+	char MaPhong[5];
+	cout << "MaPhong: ";
+	cin >> MaPhong;
+	Department* phongBan = this->FilterDepartmentById(MaPhong);
+
+	while (phongBan == NULL) {
+		cout << "Phong ban " << MaPhong << " khong ton tai! Xin vui long nhap MaPhong khac." << endl;
+		cout << "MaPhong: ";
+		cin >> MaPhong;
+		phongBan = this->FilterDepartmentById(MaPhong);
+	}
+	emp->SetDepartment(phongBan);
+
+	employers.push_back(emp);
 }
 
 int Manage::TimViTriNhanVien(const char * MaNV)

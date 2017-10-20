@@ -46,10 +46,66 @@ char Screens::DisplayEditEmployerScreen(Employer* employer)
 
 char Screens::DisplayMainScreen()
 {
-	return 0;
+	// Header
+	cout << "=======================================================" << endl;
+	cout << "            QUAN LY NHAN VIEN & PHONG BAN" << endl;
+	cout << "=======================================================" << endl << endl;
+
+
+
+	return ' ';
 }
 
-char Screens::DisplayEmployerScreen()
+char Screens::DisplayEmployerScreen(Employer *employer)
 {
-	return 0;
+	// Header
+	cout << "=============================================" << endl;
+	cout << "           THONG TIN NHAN VIEN" << endl;
+	cout << "=============================================" << endl << endl;
+
+	//Thong tin nhan vien
+	employer->XuatNhanVien();
+	cout << " <- Q. Quay lai" << endl << endl;
+
+	string controlKeys = "Qq";
+	char key = ' ';
+	while (controlKeys.find(key) == std::string::npos) {
+		key = _getch();
+	}
+	//cout << key << '\t' << endl;
+	return key;
 }
+
+char Screens::DisplayListEmployerScreen(vector<Employer*> employers)
+{
+	// Header
+	cout << "=============================================" << endl;
+	cout << "           THONG TIN NHAN VIEN" << endl;
+	cout << "=============================================" << endl << endl << endl;
+	cout << "\tMaNV\t|\t\tHo ten\t\t\t|\t\tLoai\t\t|" << endl;
+	cout << "=================================================================================================" << endl;
+	
+	// List employer
+	for (int i = 0; i < employers.size(); i++) {
+		Screens::DisplayEmployerListItem(employers[i]);
+	}
+	cout << endl << "\t<- Q. Quay lai" << "\t\t" << "C. Xem chi tiet ->" << endl;
+
+	// Controls
+	string controlKeys = "QqCc";
+	char key = ' ';
+	while (controlKeys.find(key) == std::string::npos) {
+		key = _getch();
+	}
+	return key;
+}
+
+void Screens::DisplayEmployerListItem(Employer * employer)
+{
+	cout << "\t" << employer->GetMaNV() << "\t";
+	cout << "\t" << employer->GetTenNV() << "\t\t\t";
+	cout << "\t" << employer->GetLoaiNV() << "\t" << endl;
+	cout << "-------------------------------------------------------------------------------------------------" << endl;
+
+}
+

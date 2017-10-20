@@ -17,6 +17,16 @@ char* Employer::GetMaNV()
 	return this->MaNV;
 }
 
+char * Employer::GetTenNV()
+{
+	return this->TenNV;
+}
+
+char * Employer::GetLoaiNV()
+{
+	return this->LoaiNV == 1 ? "Bien che" : "Cong nhat";
+}
+
 void Employer::SetTenNV(char *TenNV)
 {
 	strcpy_s(this->TenNV, TenNV);
@@ -33,13 +43,13 @@ void Employer::SetNgSinh(char * NgSinh)
 }
 
 void Employer::NhapNhanVien() {
-	cout << "Nhap ma nhan vien:";
+	cout << "MaNV: ";
 	gets_s(MaNV);
-	cout << "Nhap ten nhan vien:";
+	cout << "Ho ten: ";
 	gets_s(TenNV);
-	cout << "Nhap so dien thoai:";
+	cout << "SDT:";
 	gets_s(SoDT);
-	cout << "Nhap ngay sinh:";
+	cout << "Ngay sinh:";
 	gets_s(NgSinh);
 }
 

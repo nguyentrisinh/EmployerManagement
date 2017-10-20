@@ -23,14 +23,16 @@ public:
 
 	void NhapDepartment();
 	void XuatDepartment();
+
 	Department* FilterDepartmentById(char MaPhong[5]);
+	int TimViTriNhanVien(const char* MaNV); // tra ve vi tri nhan vien
 
 	void NhapNhanVien();
 	void XuatNhanVien();
-
-	int TimViTriNhanVien(const char* MaNV); // tra ve vi tri nhan vien
+	void ThemMotNhanVien();
 	void XoaNhanVien();
 	void SuaNhanVien();
+	
 
 
 
@@ -39,5 +41,8 @@ public:
 
 	Employer* GetEmployer(int pos) {
 		return employers[pos];
+	}
+	vector <Employer*> GetListEmployers() {
+		return employers;
 	}
 };

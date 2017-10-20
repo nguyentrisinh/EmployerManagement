@@ -3,11 +3,15 @@
 #include "stdio.h"
 #include "string.h"
 #include <conio.h>
+#include <vector>
 #include "Employer.h"
 
 using namespace std;
 static class Screens
 {
+private:
+	static void DisplayEmployerListItem(Employer* employer);
+
 public:
 	Screens();
 	~Screens();
@@ -15,6 +19,7 @@ public:
 	// tra ve keycode
 	static char DisplayEditEmployerScreen(Employer* employer);
 	static char DisplayMainScreen();
-	static char DisplayEmployerScreen();
+	static char DisplayEmployerScreen(Employer *employer);
+	static char DisplayListEmployerScreen(vector<Employer*> employers);
 };
 
