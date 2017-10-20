@@ -21,3 +21,21 @@ void Department::XuatPhong() {
 	cout << "Ma phong:" << MaPhong << "\n";
 	cout << "Ten phong:" << TenPhong << "\n";
 }
+
+
+
+
+
+
+
+
+
+
+// ================= For Test ======================
+Department* Department::CreateDummnyDepartment(char* MaPhong, char* TenPhong)
+{
+	Department * deparment = new Department();
+	strcpy_s(deparment->MaPhong, MaPhong);
+	strcpy_s(deparment->TenPhong, TenPhong);
+	return deparment;
+}

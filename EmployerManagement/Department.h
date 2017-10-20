@@ -17,4 +17,8 @@ public:
 
 	void NhapPhong();
 	void XuatPhong();
+
+
+	//============ For test ===================
+	static Department* CreateDummnyDepartment(char* MaPhong, char* TenPhong);
 };
