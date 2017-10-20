@@ -31,7 +31,7 @@ void Manage::XuatDepartment() {
 }
 
 
-void Manage::NhapNhanVien() {
+void Manage::NhapDanhSachNhanVien() {
 	int employerCount;
 	cout << "Nhap so nhan vien:";
 	cin >> employerCount;
@@ -43,11 +43,14 @@ void Manage::NhapNhanVien() {
 	cin.ignore();
 
 	for (int i = 0; i < employerCount; i++){
-		ThemMotNhanVien();
+		NhapNhanVien();
 	}
+	system("cls");
+	cout << "Them nhan vien thanh cong!";
+	Sleep(3000);
 }
 
-void Manage::XuatNhanVien() {
+void Manage::XuatDanhSachNhanVien() {
 	for (int i = 0; i < employers.size(); i++) {
 		cout << "---------------------------------\n";
 		cout << "Thong tin nhan vien thu " << i + 1 << endl;
@@ -55,7 +58,7 @@ void Manage::XuatNhanVien() {
 	}
 }
 
-void Manage::ThemMotNhanVien()
+void Manage::NhapNhanVien()
 {
 	int type = -1;
 	while (type != 1 && type != 2) {
@@ -94,6 +97,21 @@ void Manage::ThemMotNhanVien()
 	emp->SetDepartment(phongBan);
 
 	employers.push_back(emp);
+}
+
+void Manage::XuatNhanVien()
+{
+	system("cls");
+	char MaNV[5];
+	cout << "Nhap MaNV: ";
+	cin.clear();
+	fflush(stdin);
+	cin >> MaNV;
+
+	int pos = TimViTriNhanVien(MaNV);
+	if (pos == -1) return;
+
+	Screens::DisplayEmployerScreen(employers[pos]);
 }
 
 int Manage::TimViTriNhanVien(const char * MaNV)

@@ -83,7 +83,7 @@ char Screens::DisplayEmployerScreen(Employer *employer)
 
 	//Thong tin nhan vien
 	employer->XuatNhanVien();
-	cout << " <- Q. Quay lai" << endl << endl;
+	cout << endl << endl << " <- Q. Quay lai";
 
 	string controlKeys = "Qq";
 	char key = ' ';
@@ -160,10 +160,22 @@ char Screens::DisplayEmployerConstrolsScreen()
 	cout << "      +--------------------------------------+" << endl;
 	cout << "      |  2. Xem danh sach nhan vien          |" << endl;
 	cout << "      +--------------------------------------+" << endl;
+	cout << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << "      |  3. Xem thong tin nhan vien          |" << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << "      |  4. Sua thong tin nhan vien          |" << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << endl;
+	cout << "      +--------------------------------------+" << endl;
+	cout << "      |  5. Xoa nhan vien                    |" << endl;
+	cout << "      +--------------------------------------+" << endl;
 	cout << endl << endl;
 	cout << " <- Q. Quay lai" << endl << endl;
 
-	string controlKeys = "12Qq";
+	string controlKeys = "12345Qq";
 	char key = ' ';
 	while (controlKeys.find(key) == std::string::npos) {
 		key = _getch();
@@ -197,6 +209,17 @@ char Screens::DisplayDepartmentConstrolsScreen()
 		key = _getch();
 	}
 	return key;
+}
+
+char Screens::DisplayAddEmployerScreen()
+{
+	system("cls");
+	// Header
+	cout << "=============================================" << endl;
+	cout << "          THEM NHAN VIEN" << endl;
+	cout << "=============================================" << endl << endl;
+
+	return ' ';
 }
 
 void Screens::DisplayEmployerListItem(Employer * employer)

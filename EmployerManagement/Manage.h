@@ -27,9 +27,11 @@ public:
 	Department* FilterDepartmentById(char MaPhong[5]);
 	int TimViTriNhanVien(const char* MaNV); // tra ve vi tri nhan vien
 
+
+	void NhapDanhSachNhanVien();
+	void XuatDanhSachNhanVien();
 	void NhapNhanVien();
 	void XuatNhanVien();
-	void ThemMotNhanVien();
 	void XoaNhanVien();
 	void SuaNhanVien();
 	
