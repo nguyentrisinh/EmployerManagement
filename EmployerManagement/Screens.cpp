@@ -23,6 +23,7 @@ char Screens::DisplayEditEmployerScreen(Employer* employer)
 	employer->XuatNhanVien();
 
 	// Tuy chon
+	string controlKeys = "1234Qq";
 	cout << endl << endl;
 	cout << "   +------------------------------+" << endl;
 	cout << "   | 1. Doi ten                   |"<< endl;
@@ -33,15 +34,22 @@ char Screens::DisplayEditEmployerScreen(Employer* employer)
 	cout << "   +------------------------------+" << endl;
 	cout << "   | 4. Doi phong ban             |" << endl;
 	cout << "   +------------------------------+" << endl;
+	if (typeid(*employer) == typeid(FulltimeEmployer)) {
+		cout << "   | 5. Sua luong thang           |" << endl;
+		cout << "   +------------------------------+" << endl;
+		cout << "   | 6. Sua he so luong           |" << endl;
+		cout << "   +------------------------------+" << endl;
+		cout << "   | 7. Sua tro cap               |" << endl;
+		cout << "   +------------------------------+" << endl;
+		controlKeys = "1234567Qq";
+	}
 	cout << endl << endl;
 	cout << " <- Q. Quay lai" << endl << endl;
 
-	string controlKeys = "1234Qq";
 	char key = ' ';
 	while (controlKeys.find(key) == std::string::npos) {
 		key = _getch();
 	}
-	//cout << key << '\t' << endl;
 	return key;
 }
 

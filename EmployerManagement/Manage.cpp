@@ -227,8 +227,20 @@ void Manage::SuaNhanVien()
 		employers[pos]->SetDepartment(de);
 		break;
 	}
+	case '5':
+		cout << "5. Sua luong thang " << endl;
+		break;
+
+	case '6':
+		cout << "   | 6. Sua he so luong           |" << endl;
+		break;
+
+	case '7':
+		cout << "   | 7. Sua bac luong             |" << endl;
+		break;
 
 	case 'Q':
+	case 'q':
 		return;
 	default:
 		return;

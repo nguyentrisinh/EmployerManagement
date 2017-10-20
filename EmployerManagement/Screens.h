@@ -2,9 +2,11 @@
 #include "iostream"
 #include "stdio.h"
 #include "string.h"
+#include <typeinfo>
 #include <conio.h>
 #include <vector>
 #include "Employer.h"
+#include "FulltimeEmployer.h"
 
 using namespace std;
 static class Screens
