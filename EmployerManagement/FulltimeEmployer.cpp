@@ -10,6 +10,7 @@ FulltimeEmployer::FulltimeEmployer()
 
 FulltimeEmployer::~FulltimeEmployer()
 {
+
 }
 
 void FulltimeEmployer::NhapNhanVien() {

@@ -3,12 +3,11 @@
 #include "stdio.h"
 #include "String.h"
 #include "Department.h"
-#include "Employer.h"
+//#include "Employer.h"
 #include "PartimeEmployer.h"
 #include "FulltimeEmployer.h"
 
 using namespace std;
-
 
 class Manage {
 private:
@@ -28,4 +27,12 @@ public:
 
 	void NhapNhanVien();
 	void XuatNhanVien();
+
+	//Employer* TimNhanVien(const char* MaNV);
+	void XoaNhanVien();
+
+
+
+
+	void CreateDummyData();
 };

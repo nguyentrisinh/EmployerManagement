@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Employer.h"
+//#include "PartimeEmployer.h"
+//#include "FulltimeEmployer.h"
 
 
 Employer::Employer() {
@@ -8,6 +10,11 @@ Employer::Employer() {
 
 Employer::~Employer() {
 
+}
+
+char* Employer::GetMaNV()
+{
+	return this->MaNV;
 }
 
 void Employer::NhapNhanVien() {
@@ -31,4 +38,47 @@ void Employer::XuatNhanVien() {
 
 void Employer::SetDepartment(Department* department) {
 	this->department = department;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//======================== For test ===========================
+void Employer::CreateDummyEmployer(char* MaNV, char* TenNV, char* SoDT, char* NgSinh, int loaiNV, Department* devepartment)
+{
+	/*Employer * emp;
+	if (loaiNV == 1) {
+		emp = new FulltimeEmployer();
+	}
+	else if (loaiNV == 2){
+		emp = new PartimeEmployer();
+	}
+	else return;*/
+	this->LoaiNV = loaiNV;
+	
+	strcpy_s(this->MaNV,  MaNV);
+	strcpy_s(this->TenNV, TenNV);
+	strcpy_s(this->SoDT, SoDT);
+	strcpy_s(this->NgSinh, NgSinh);
+	this->department = devepartment;
+
+	//return Employer;
 }

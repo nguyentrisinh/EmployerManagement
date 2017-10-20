@@ -161,6 +161,7 @@
     <ClCompile Include="Employer.cpp" />
     <ClCompile Include="EmployerManagement.cpp" />
     <ClCompile Include="FulltimeEmployer.cpp" />
+    <ClCompile Include="FullTimeSalary.cpp" />
     <ClCompile Include="Manage.cpp" />
     <ClCompile Include="PartimeEmployer.cpp" />
     <ClCompile Include="Salary.cpp" />

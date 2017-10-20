@@ -90,6 +90,46 @@ void Manage::XuatNhanVien() {
 	}
 }
 
+//Employer* Manage::TimNhanVien(const char * MaNV)
+//{
+//	for (int i = 0; i < this->employerCount; i++) {
+//		if (std::strcmp(employers[i]->GetMaNV(), MaNV) == 0)
+//			return employers[i];
+//	}
+//	cout << "Khong tim thay nhan vien tuong ung" << endl;
+//	return nullptr;
+//}
+
+void Manage::XoaNhanVien()
+{
+	char MaNV[5];
+	cout << "Nhap MaNV cua nhan vien can xoa: ";
+	cin.clear();
+	fflush(stdin);
+	cin >> MaNV;
+
+	// Tim nhan vien
+	int index = -1;
+	Employer *delEmployer;
+	for (int i = 0; i < this->employerCount; i++) {
+		if (std::strcmp(employers[i]->GetMaNV(), MaNV) == 0)
+		{
+			index = i;
+			delEmployer = employers[i];
+			break;
+		}
+	}
+	if (index == -1)
+	{
+		cout << "Khong tim thay nhan vien " << MaNV << endl;
+		return;
+	}
+
+	// Xoa nhan vien
+	memcpy(employers[index], employers[index + 1], this->employerCount--);
+	//delete delEmployer;
+}
+
 Department* Manage::FilterDepartmentById(char MaPhong[5]) {
 	for (int i = 0; i < this->departmentCount; i++) {
 		if (strcmp(this->departments[i]->MaPhong, MaPhong) == 0) {
@@ -99,4 +139,27 @@ Department* Manage::FilterDepartmentById(char MaPhong[5]) {
 	}
 	cout << "Can't find anything" << endl;
 	return NULL;
+}
+
+
+
+//================== For Test ================================
+void Manage::CreateDummyData()
+{
+	Department * d1 = Department::CreateDummnyDepartment("1", "Phong 1");
+	Department * d2 = Department::CreateDummnyDepartment("2", "Phong 2");
+
+	Employer *e1 = new PartimeEmployer();
+	e1->CreateDummyEmployer("1", "Nhan vien 1", "012127545", "10/10/1996", 2, d1);
+	Employer *e2 = new FulltimeEmployer();
+	e2->CreateDummyEmployer("2", "Nhan vien 2", "012127545", "01/12/1996", 1, d2);
+	Employer *e3 = new FulltimeEmployer();
+	e3->CreateDummyEmployer("3", "Nhan vien 3", "012127545", "02/09/1996", 1, d2);
+
+	this->employers = new Employer*[3];
+	employers[0] = e1;
+	employers[1] = e2;
+	employers[2] = e3;
+
+	employerCount = 3;
 }
