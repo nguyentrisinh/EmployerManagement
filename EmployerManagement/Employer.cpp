@@ -50,7 +50,9 @@ void Employer::SetNgSinh(char * NgSinh)
 void Employer::NhapNhanVien(char *MaNV) {
 	strcpy_s(this->MaNV, MaNV);
 	cout << "Ho ten: ";
-	cin >> TenNV;
+	cin.ignore();
+	gets_s(TenNV);
+	//cin >> TenNV;
 	cout << "SDT:";
 	cin >> SoDT;
 	cout << "Ngay sinh:";

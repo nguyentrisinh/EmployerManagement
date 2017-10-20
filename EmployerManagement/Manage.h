@@ -30,6 +30,7 @@ public:
 
 	void NhapDanhSachNhanVien();
 	void XuatDanhSachNhanVien();
+
 	void NhapNhanVien();
 	void XuatNhanVien();
 	void XoaNhanVien();
