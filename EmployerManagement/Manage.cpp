@@ -286,6 +286,44 @@ void Manage::XuatLuong() {
 	}
 }
 
+Salary* Manage::GetMaxSalaryByMonthYear(int month, int year) {
+	Salary* maxSalary = NULL;
+	for (int i = 0; i < this->salaries.size(); i++) {
+		// cancel case that month and year are not the same as what we want
+		if (this->salaries[i]->Thang != month || this->salaries[i]->Nam != year) {
+			continue;
+		}
+
+		// Check if salary is the first time match with month and year we want to see max salary
+		if (maxSalary == NULL) {
+			maxSalary = this->salaries[i];
+		}
+
+		// Compare to choose what is the max salary that match month and year we want to see max salary
+		if (maxSalary->Luong < salaries[i]->Luong) {
+			maxSalary = salaries[i];
+		}
+	}
+
+	return maxSalary;
+}
+
+void Manage::XuatNhanVienMaxLuong() {
+	int month, year;
+
+	cout << "Nhap nam muon xem luong lon nhat:"; cin >> year;
+	cout << "Nhap thang muon xem luong lon nhat:"; cin >> month;
+	Salary* salary = GetMaxSalaryByMonthYear(month, year);
+
+	if (salary == NULL) {
+		cout << "Ban chua nhap luong cho thang: " << month << "/" << year << endl;
+		return;
+	}
+	cout << "Nhan vien co luong lon nhat thang: " << month << "/" << year << endl;
+	salary->employer->XuatNhanVien();
+	salary->XuatLuong();
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Output function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 vector<Employer*> Manage::DanhSachNhanVienTheoPhongBan()
 {

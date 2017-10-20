@@ -14,7 +14,9 @@ int main()
 	manage->CreateDummyData();
 
 	manage->NhapLuong();
-	manage->XuatLuong();
+	manage->NhapLuong();
+
+	manage->XuatNhanVienMaxLuong();
 
 	//ScreenType screenType = MAIN_SCREEN;
 	//char key = ' ';
