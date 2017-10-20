@@ -42,7 +42,7 @@ void Manage::NhapNhanVien() {
 	}
 	cin.ignore();
 
-	for (int i = 0; i < employers.size(); i++)
+	for (int i = 0; i < employerCount; i++)
 	{
 		int choice;
 		do {
