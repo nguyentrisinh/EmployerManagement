@@ -16,9 +16,9 @@ int main()
 	cout << "---------------------------------" << endl;
 
 
-	/*manage->XoaNhanVien();
+	manage->XoaNhanVien();
 	system("cls");
-	manage->XuatNhanVien();*/
+	manage->XuatNhanVien();
 	system("pause");
     return 0;
 }

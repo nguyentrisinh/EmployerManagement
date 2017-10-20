@@ -12,10 +12,7 @@ using namespace std;
 
 class Manage {
 private:
-	int departmentCount;
-	Department** departments;
-
-	int employerCount;
+	vector<Department*> departments;
 	vector<Employer*> employers;
 
 public:

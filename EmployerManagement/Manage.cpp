@@ -3,28 +3,27 @@
 
 
 void Manage::NhapDepartment() {
+	int departmentCount;
 	cout << "Nhap so phong ban:"; 
-	cin >> this->departmentCount;
-	while (this->departmentCount <= 0) {
+	cin >> departmentCount;
+	while (departmentCount <= 0) {
 		cout << "So phong ban phai > 0. Xin vui long nhap lai so phong ban:";
-		cin >> this->departmentCount;
+		cin >> departmentCount;
 	}
 	cin.ignore();
-
-	departments = new Department* [departmentCount];
-
-	for (int i = 0; i < this->departmentCount; i++)
+	for (int i = 0; i < departmentCount; i++)
 	{
-		departments[i] = new Department ();
+		Department *department = new Department ();
 		cout << "-----------------------------------" << endl;
 		cout << "Nhap phong ban thu " << i + 1 << endl;
-		departments[i]->NhapPhong();
+		department->NhapPhong();
+		departments.push_back(department);
 	}
 }
 
 
 void Manage::XuatDepartment() {
-	for (int i = 0; i < this->departmentCount; i++) {
+	for (int i = 0; i < departments.size(); i++) {
 		cout << "---------------------------------\n";
 		cout << "Thong tin phong thu " << i + 1 << "\n";
 		departments[i]->XuatPhong();
@@ -33,17 +32,17 @@ void Manage::XuatDepartment() {
 
 
 void Manage::NhapNhanVien() {
+	int employerCount;
 	cout << "Nhap so nhan vien:";
-	cin >> this->employerCount;
+	cin >> employerCount;
 	// scanf_s("%d", &this->departmentCount);
-	while (this->employerCount <= 0) {
+	while (employerCount <= 0) {
 		cout << "So phong ban phai > 0. Xin vui long nhap lai so phong ban:";
-		cin >> this->employerCount;
+		cin >> employerCount;
 	}
 	cin.ignore();
-	//this->employers = new Employer* [departmentCount];
 
-	for (int i = 0; i < this->employerCount; i++)
+	for (int i = 0; i < employers.size(); i++)
 	{
 		int choice;
 		do {
@@ -88,7 +87,7 @@ void Manage::NhapNhanVien() {
 }
 
 void Manage::XuatNhanVien() {
-	for (int i = 0; i < this->employerCount; i++) {
+	for (int i = 0; i < employers.size(); i++) {
 		cout << "---------------------------------\n";
 		cout << "Thong tin nhan vien thu " << i + 1 << endl;
 		this->employers[i]->XuatNhanVien();
@@ -114,29 +113,25 @@ void Manage::XoaNhanVien()
 	cin >> MaNV;
 
 	// Tim nhan vien
-	int index = -1;
-	Employer *delEmployer;
-	for (int i = 0; i < this->employerCount; i++) {
-		if (std::strcmp(employers[i]->GetMaNV(), MaNV) == 0)
-		{
-			index = i;
-			delEmployer = employers[i];
+	int pos = -1;
+	for (int i = 0; i < employers.size(); i++) {
+		if (std::strcmp(employers[i]->GetMaNV(), MaNV) == 0){
+			pos = i;
 			break;
 		}
 	}
-	if (index == -1)
-	{
+	if (pos == -1){
 		cout << "Khong tim thay nhan vien " << MaNV << endl;
 		return;
 	}
 
 	// Xoa nhan vien
-	memcpy(employers[index], employers[index + 1], this->employerCount--);
-	//delete delEmployer;
+	employers.erase(employers.begin() + pos);
+	cout << "Xoa nhan vien thanh cong!" << endl;
 }
 
 Department* Manage::FilterDepartmentById(char MaPhong[5]) {
-	for (int i = 0; i < this->departmentCount; i++) {
+	for (int i = 0; i < departments.size(); i++) {
 		if (strcmp(this->departments[i]->MaPhong, MaPhong) == 0) {
 			cout << this->departments[i]->TenPhong << endl;
 			return this->departments[i];
@@ -153,6 +148,8 @@ void Manage::CreateDummyData()
 {
 	Department * d1 = Department::CreateDummnyDepartment("1", "Phong 1");
 	Department * d2 = Department::CreateDummnyDepartment("2", "Phong 2");
+	departments.push_back(d1);
+	departments.push_back(d2);
 
 	Employer *e1 = new PartimeEmployer();
 	e1->CreateDummyEmployer("1", "Nhan vien 1", "012127545", "10/10/1996", 2, d1);
@@ -164,5 +161,4 @@ void Manage::CreateDummyData()
 	employers.push_back(e1);
 	employers.push_back(e2);
 	employers.push_back(e3);
-	employerCount = 3;
 }
