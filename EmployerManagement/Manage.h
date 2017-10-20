@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <vector>
 #include "stdio.h"
 #include "String.h"
 #include "Department.h"
@@ -15,7 +16,7 @@ private:
 	Department** departments;
 
 	int employerCount;
-	Employer** employers;
+	vector<Employer*> employers;
 
 public:
 	Manage() {}

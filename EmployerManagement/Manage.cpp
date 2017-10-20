@@ -41,7 +41,7 @@ void Manage::NhapNhanVien() {
 		cin >> this->employerCount;
 	}
 	cin.ignore();
-	this->employers = new Employer* [departmentCount];
+	//this->employers = new Employer* [departmentCount];
 
 	for (int i = 0; i < this->employerCount; i++)
 	{
@@ -53,19 +53,24 @@ void Manage::NhapNhanVien() {
 		cin.ignore();
 		cout << "-----------------------------------" << endl;
 		cout << "Nhap nhan vien thu " << i + 1 << endl;
+
+		Employer *employer;
 		switch (choice) {
 		case 1:
-			employers[i] = new FulltimeEmployer();
-			employers[i]->NhapNhanVien();
-			employers[i]->LoaiNV = choice;
+			employer = new FulltimeEmployer();
 			break;
 		case 2:
-			employers[i] = new PartimeEmployer();
-			employers[i]->NhapNhanVien();
-			employers[i]->LoaiNV = choice;
+			employer = new PartimeEmployer();
 			break;
 
+		default:
+			cout << "Loai nhan vien khong hop le!" << endl;
+			return;
 		}
+		employer->NhapNhanVien();
+		employer->LoaiNV = choice;
+		employers.push_back(employer);
+
 		char MaPhong[5];
 		cout << "Nhap ma phong ban cua nhan vien:";
 		cin >> MaPhong;
@@ -156,10 +161,8 @@ void Manage::CreateDummyData()
 	Employer *e3 = new FulltimeEmployer();
 	e3->CreateDummyEmployer("3", "Nhan vien 3", "012127545", "02/09/1996", 1, d2);
 
-	this->employers = new Employer*[3];
-	employers[0] = e1;
-	employers[1] = e2;
-	employers[2] = e3;
-
+	employers.push_back(e1);
+	employers.push_back(e2);
+	employers.push_back(e3);
 	employerCount = 3;
 }
