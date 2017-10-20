@@ -3,7 +3,7 @@
 class PartimeEmployer :
 	public Employer
 {
-private:
+public:
 	int SalaryPerDay;
 public:
 	PartimeEmployer();

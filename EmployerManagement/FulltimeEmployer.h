@@ -3,7 +3,7 @@
 class FulltimeEmployer :
 	public Employer
 {
-private :
+public :
 
 	int Allowance;
 	int SalaryPerMonth;

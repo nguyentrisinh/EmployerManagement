@@ -80,8 +80,5 @@
     <ClCompile Include="Salary.cpp">
       <Filter>Manage\sources</Filter>
     </ClCompile>
-    <ClCompile Include="FullTimeSalary.cpp">
-      <Filter>Manage\sources</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

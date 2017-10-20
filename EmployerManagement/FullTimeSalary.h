@@ -8,6 +8,7 @@
 class FullTimeSalary :
 	public Salary 
 {
+
 	FullTimeSalary();
 	~FullTimeSalary();
 
