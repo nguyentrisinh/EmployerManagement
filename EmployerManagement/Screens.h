@@ -29,6 +29,7 @@ public:
 	static char DisplayEmployerConstrolsScreen();
 	static char DisplayDepartmentConstrolsScreen();
 	static char DisplayAddEmployerScreen();
+	static void DisplaySalaryCalculateHeader();
 	static char DisplayFittedListEmployerScreen(vector<Employer*> employers);
 	static char DisplayListEmployerBySalary(vector<Employer*> employers, vector<Salary*> salary, int thang, int nam);
 };

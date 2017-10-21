@@ -6,7 +6,7 @@
 #include "Screens.h"
 
 
-enum ScreenType {MAIN_SCREEN, EMPLOYER_CONTROLS_SCREEN, DEPARTMENT_CONTROLS_SCREEN, EMPLOYER_LIST_SCREEN,
+enum ScreenType {MAIN_SCREEN, EMPLOYER_CONTROLS_SCREEN, DEPARTMENT_CONTROLS_SCREEN, EMPLOYER_LIST_SCREEN, PAYROLL_SCREEN,
 	DEPARTMENT_LIST_SCREEN, ADD_DEPARTMENT_SCREEN, ADD_EMPLOYERS_SCREEN, EDIT_EMPLOYER_SCREEN, DELETE_EMPLOYER_SCREEN, EMPLOYER_DETAIL_SCREEN};
 int main()
 {
@@ -58,8 +58,8 @@ int main()
 				break;
 
 			case '6':
-				manage->XuatBangTinhLuong();
-				break;
+				screenType = PAYROLL_SCREEN;
+				continue;
 
 			case 'Q':
 			case 'q':
@@ -69,7 +69,28 @@ int main()
 			screenType = EMPLOYER_CONTROLS_SCREEN;
 			continue;
 		}
-		
+		if (screenType == PAYROLL_SCREEN) {
+			char key = manage->XuatBangTinhLuong();
+			switch (key)
+			{
+			case '1': {
+				system("cls");
+				Employer *maxSalaryEmp = manage->NhanVienMaxLuong();
+				if (maxSalaryEmp) {
+					system("cls");
+					Screens::DisplayEmployerScreen(maxSalaryEmp);
+				}
+				break;
+			}
+
+			case 'Q':
+			case 'q':
+				break;
+			}
+			screenType = EMPLOYER_CONTROLS_SCREEN;
+			continue;
+		}
+
 		/*if (screenType == ADD_EMPLOYERS_SCREEN) {
 			manage->NhapDanhSachNhanVien();
 			screenType = EMPLOYER_CONTROLS_SCREEN;

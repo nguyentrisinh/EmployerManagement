@@ -184,31 +184,33 @@ void Manage::SuaNhanVien()
 		cout << "Sua nhan vien that bai!" << endl;
 		return;
 	}
+	Employer * employer = employers[pos];
 
 	// Hien thi man hinh tuy chon
 	system("cls");
-	char key = Screens::DisplayEditEmployerScreen(employers[pos]);
+	char key = Screens::DisplayEditEmployerScreen(employer);
 	system("cls");
 	switch (key) {
 	case '1': // Sua ho ten
 		char tenNV[150];
 		cout << "Nhap ho ten moi: ";
-		cin >> tenNV;
-		employers[pos]->SetTenNV(tenNV);
+		cin.ignore();
+		gets_s(tenNV);
+		employer->SetTenNV(tenNV);
 		break;
 
 	case '2':// Sua SDT
 		char sdt[20];
 		cout << "Nhap sdt moi: ";
 		cin >> sdt;
-		employers[pos]->SetSoDT(sdt);
+		employer->SetSoDT(sdt);
 		break;
 
 	case '3': // Sua ngay sinh
 		char ngSinh[30];
 		cout << "Nhap ngay sinh moi: ";
 		cin >> ngSinh;
-		employers[pos]->SetNgSinh(ngSinh);
+		employer->SetNgSinh(ngSinh);
 		break;
 
 	case '4':// Doi phong ban
@@ -224,19 +226,28 @@ void Manage::SuaNhanVien()
 			Sleep(3000);
 			return;
 		}
-		employers[pos]->SetDepartment(de);
+		employer->SetDepartment(de);
 		break;
 	}
 	case '5':
-		cout << "5. Sua luong thang " << endl;
+		int salaryPerMonth;
+		cout << "Nhap luong thang moi: ";
+		cin >> salaryPerMonth;
+		((FulltimeEmployer*)employer)->SalaryPerMonth = salaryPerMonth;
 		break;
 
 	case '6':
-		cout << "   | 6. Sua he so luong           |" << endl;
+		int salaryLevel;
+		cout << "Nhap he so luong moi: ";
+		cin >> salaryLevel;
+		((FulltimeEmployer*)employer)->SalaryLevel = salaryLevel;
 		break;
 
 	case '7':
-		cout << "   | 7. Sửa trợ cấp             |" << endl;
+		int allowance;
+		cout << "Nhap he so luong moi: ";
+		cin >> allowance;
+		((FulltimeEmployer*)employer)->Allowance = allowance;
 		break;
 
 	case 'Q':
@@ -255,8 +266,8 @@ void Manage::SuaNhanVien()
 void Manage::NhapLuong() {
 	// Input nam and thang to counting salary
 	int nam, thang;
-	cout << "Nhap nam muon tinh luong: "; cin >> nam;
-	cout << "Nhap thang muon tinh luong: "; cin >> thang;
+	cout << "Nhap nam tinh luong: "; cin >> nam;
+	cout << "Nhap thang tinh luong: "; cin >> thang;
 
 	for (int i = 0; i < this->employers.size(); i++) {
 		Employer* employer = employers[i];
@@ -271,6 +282,7 @@ void Manage::NhapLuong() {
 		}
 		case 2:
 		{
+			cout << "* Nhan vien cong nhat " << employer->GetTenNV() << " (" << employer->GetTenNV() << ") " << endl;
 			Salary *partTimeSalary = new PartTimeSalary();
 			partTimeSalary->TinhLuong(thang, nam, employer);
 			this->salaries.push_back(partTimeSalary);
@@ -286,12 +298,13 @@ void Manage::XuatLuong() {
 	}
 }
 
-void Manage::XuatBangTinhLuong()
+char Manage::XuatBangTinhLuong()
 {
 	system("cls");
+	Screens::DisplaySalaryCalculateHeader();
 	NhapLuong();
 	system("cls");
-	Screens::DisplayListEmployerBySalary(this->employers, this->salaries, salaries[0]->Thang, salaries[0]->Nam);
+	return Screens::DisplayListEmployerBySalary(this->employers, this->salaries, salaries[0]->Thang, salaries[0]->Nam);
 }
 
 Salary* Manage::GetMaxSalaryByMonthYear(int month, int year) {
@@ -316,20 +329,19 @@ Salary* Manage::GetMaxSalaryByMonthYear(int month, int year) {
 	return maxSalary;
 }
 
-void Manage::XuatNhanVienMaxLuong() {
+Employer* Manage::NhanVienMaxLuong() {
 	int month, year;
-
-	cout << "Nhap nam muon xem luong lon nhat:"; cin >> year;
-	cout << "Nhap thang muon xem luong lon nhat:"; cin >> month;
+	cout << "Nhap nam muon xem luong lon nhat: "; cin >> year;
+	cout << "Nhap thang muon xem luong lon nhat: "; cin >> month;
 	Salary* salary = GetMaxSalaryByMonthYear(month, year);
 
 	if (salary == NULL) {
 		cout << "Ban chua nhap luong cho thang: " << month << "/" << year << endl;
-		return;
+		Sleep(3000);
+		return NULL;
 	}
 	cout << "Nhan vien co luong lon nhat thang: " << month << "/" << year << endl;
-	salary->employer->XuatNhanVien();
-	salary->XuatLuong();
+	return salary->employer;
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Output function ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

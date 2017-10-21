@@ -83,7 +83,6 @@ char Screens::DisplayMainScreen()
 
 char Screens::DisplayEmployerScreen(Employer *employer)
 {
-	system("cls");
 	// Header
 	cout << "=============================================" << endl;
 	cout << "           THONG TIN NHAN VIEN" << endl;
@@ -175,12 +174,12 @@ char Screens::DisplayListEmployerBySalary(vector<Employer*> employers, vector<Sa
 		cout << "\t" << employer->GetMaNV() << "\t";
 		cout << "\t" << employer->GetTenNV() << "\t\t";
 		cout << "\t" << salaries[i]->Luong << "\t" << endl;
-		cout << "-------------------------------------------------------------------------------------------------" << endl;
+		cout << "-------------------------------------------------------------------------------------------------" << endl << endl;
 	}
 
-	cout << "   +------------------------------+" << endl;
-	cout << "   |  1. Luong cao nhat           |" << endl;
-	cout << "   +------------------------------+" << endl;
+	cout << "                                 +------------------------------+" << endl;
+	cout << "                                 |  1. Luong cao nhat           |" << endl;
+	cout << "                                 +------------------------------+" << endl;
 	cout << endl << endl << "\t<- Q. Quay lai" << endl;
 
 	// Controls
@@ -300,6 +299,14 @@ char Screens::DisplayAddEmployerScreen()
 	cout << "=============================================" << endl << endl;
 
 	return ' ';
+}
+
+void Screens::DisplaySalaryCalculateHeader()
+{
+	// Header
+	cout << "=============================================" << endl;
+	cout << "          THEM NHAN VIEN" << endl;
+	cout << "=============================================" << endl << endl;
 }
 
 void Screens::DisplayEmployerListItem(Employer * employer)
